@@ -1,8 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
-#include"prototype.h"
-#include"buyer_prototype.h"
+#include"header.h"
 
 void display(seller_Details *seller_root)
 {
