@@ -1,8 +1,8 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
-#include"prototype.h"
-#include"buyer_prototype.h"
+#include"header.h"
+
 
 void save_to_file(buyer_Details *source)
 {
