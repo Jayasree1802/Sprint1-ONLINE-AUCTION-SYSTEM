@@ -3,6 +3,10 @@
 #include"header.h"
 
 
+/*This Fuction is for Auction of products
+*parameter::seller root
+*return type:: void
+*/
 void auction_for_product(product_details *prod_root , seller_Details *seller_root , buyer_Details *buyer_root)
 {
 	seller_Details *sller_id = NULL;
@@ -84,6 +88,10 @@ void auction_for_product(product_details *prod_root , seller_Details *seller_roo
 }
 
 
+/*This Fuction is for checking the price of user enterd
+*parameter::q
+*return type:: seller_Details *q
+*/
 seller_Details * price_check(product_details *p , seller_Details *q)
 {
 	//product_details *p = seller_root ;
@@ -100,6 +108,11 @@ seller_Details * price_check(product_details *p , seller_Details *q)
 	
 	return NULL;
 }
+
+/*This Fuction is for displaying information
+*parameter:: character pointer
+*return type:: void as it returns character pointer
+*/
 void display_info(char *buffer)
 {
 
@@ -138,6 +151,11 @@ void display_info(char *buffer)
 		piece = strtok(NULL,",");
 	}
 }
+
+/*This Fuction is for displaying History
+*parameter::No parameter returns 
+*return type:: void as it returns nothing
+*/
 void history_display()
 {
 	char *str = "biding_histry.txt";
