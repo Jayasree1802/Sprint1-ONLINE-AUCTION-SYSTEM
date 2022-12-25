@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<string.h>
-#include"prototype.h"
-#include"buyer_prototype.h"
+#include"header.h"
+
 
 void auction_for_product(product_details *prod_root , seller_Details *seller_root , buyer_Details *buyer_root)
 {
