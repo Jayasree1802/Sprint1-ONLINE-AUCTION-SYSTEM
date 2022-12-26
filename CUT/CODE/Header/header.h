@@ -9,25 +9,18 @@ typedef struct seller_Details
         char emailId[50];
         long int phoneNo;
         char panNo[10];
-        int product_id;
-        char product_name[20];
-        char product_details[30];
         char category[20];
         char password[20];
         int base_price;
         int sold_price ;
         int product_status ;
-        int choice;
-        int code;
         int buyer_id_request[10];
         int buyer_request_amount[10];
         char buyer_name[30];
         int count;
         int buyer_id_sell ;
         int status;
-
-	
-	struct product_details *link;
+        struct product_details *link;
         struct seller_Details *next;
 }seller_Details;
 
