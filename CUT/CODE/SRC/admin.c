@@ -1,7 +1,16 @@
+//definition  file for admin
+
 #include<stdio.h>
 #include<string.h>
 #include"header.h"
 
+/*******************************************************************************************
+**
+**  FUNCTION NAME   : admin
+**  DESCRIPTION     : In this function it is the menu for the admin
+**  RETURN          :  No Return 
+**  PARAMETERS      : Structure buyer_Details with buyer_root, structure seller_Details with variable seller_root
+*******************************************************************************************/
 
 void admin(seller_Details *seller_root , buyer_Details *buyer_root)
 {
@@ -27,7 +36,7 @@ void admin(seller_Details *seller_root , buyer_Details *buyer_root)
 					switch(ch)
 					{
 						case 1: 
-							block_sller(seller_root);
+							block_sller(seller_root);      
 							break;
 						case 2: 
 							display(seller_root);
