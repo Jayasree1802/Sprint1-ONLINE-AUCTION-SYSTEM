@@ -79,74 +79,51 @@ typedef struct admin_data
 seller_Details *  price_check(product_details * ,seller_Details *);
 seller_Details *create_lisr_of_seller(seller_Details *,seller_Details);
 seller_Details *file_to_list(seller_Details *);
-seller_Details question_extraction_from_file(char * , seller_Details );
-
-
+seller_Details seller_extraction_from_file(char * , seller_Details );
 void design() ;
 
 //Functions of seller
 
 seller_Details *seller(seller_Details * , product_details *);
-
 seller_Details *login_seller(seller_Details *,char * , char *);
-
 void check_the_buyer_request(seller_Details *);
-
 seller_Details * login(seller_Details *);
 int new_registration_to_file();
 
 //functions of product
 
 product_details *product_registration(product_details *);
-
 product_details data_extraction_from_buffer(char * , product_details , int *);
-
 product_details *create_list_for_product(product_details * , product_details);
-
 product_details *delete_product(product_details * ,int);
-
 product_details * modify_product_details(product_details * ,int,seller_Details *);
 void display_product(product_details *);
-
 void adding_produt_into_file();
-
 void save_product_info_file(product_details *);
 void adding_the_product_into_file(int);
-
 int alpha_validator(char *);
 int password_validation(char *);
-
 void history_display();
-
 
 //functions of buyer
 
 buyer_Details *buyer(buyer_Details * , seller_Details *,product_details *);
 buyer_Details *registration_buyer(buyer_Details *);
 buyer_Details *buyer_login(buyer_Details *,char * , char *);
-
 void writing_buyer_info_to_file();
-
 buyer_Details data_extraction_from_buyer_file(char * ,buyer_Details);
 buyer_Details *create_list_buyer(buyer_Details * , buyer_Details);
 void display(seller_Details *);
-
 void auction_for_product(product_details * , seller_Details * , buyer_Details *);
-
 product_details *get_the_product_detail(product_details * ,int);
-
 void display_buyer(buyer_Details *);
-
 
 //functions of admin menu
 
 void admin(seller_Details *, buyer_Details *);
 int admin_login();
 admin_data read_admin_file(admin_data );
-
 product_details *add_product_to_list(product_details *);
-
-
 void block_sller(seller_Details *);
 void list_sller();
 void block_buyer(buyer_Details *);
