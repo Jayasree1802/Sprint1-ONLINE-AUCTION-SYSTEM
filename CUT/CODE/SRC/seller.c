@@ -1,41 +1,28 @@
-// definition file for seller
-
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
 #include"header.h"
 
-/*******************************************************************************************
-**
-**  FUNCTION NAME   : display
-**  DESCRIPTION     : In this function it display the data of the sellers in a file
-**  RETURN          :  No Return 
-**  PARAMETERS      : Structure seller_Details variable seller_root
-*******************************************************************************************/
-
+/****************************************************
+*FUCNCTION NAME          :       display
+*DESCRIPTION             :       This function used here to show the seller details
+*RETURN                  :       No Return
+*PARAMETERS              :       Structure seller_Details variable seller_root
+****************************************************/
 void display(seller_Details *seller_root)
 {
-	//printf("seller_root:%p\n",seller_root);
-	
 	while(seller_root!=NULL)
 	{
-	
-		printf("%s,%d,%ld,%s,%s,%s\n",seller_root->name,seller_root->id ,seller_root->phoneNo ,seller_root->emailId ,seller_root->panNo,seller_root->password);	
-		
-		
-		seller_root = seller_root->next;
+               printf("%s,%d,%ld,%s,%s,%s\n",seller_root->name,seller_root->id ,seller_root->phoneNo ,seller_root->emailId ,seller_root->panNo,seller_root->password);	
+	       seller_root = seller_root->next;
 	}
 }
-
-/*******************************************************************************************
-**
-**  FUNCTION NAME   : login
-**  DESCRIPTION     : It is the function to login for seller
-**  RETURN          :  No Return 
-**  PARAMETERS      : Structure seller_Details variable seller_root
-*******************************************************************************************/
-
-
+/**************************************************************
+*FUNCTION NAME           :       login
+*DESCRIPTION             :       this function used here for seller login
+*RETURN                  :       NULL
+*PARAMETERS              :       Structure seller_Details variable seller_root
+****************************************************************/
 seller_Details * login(seller_Details *seller_root )
 {
 	char seller_name[20] , seller_pswd[20] ;
@@ -49,7 +36,6 @@ seller_Details * login(seller_Details *seller_root )
 	{
 		printf("%s is loged in succsfully\n",seller_name);
 		return seller_root;
-		//check_the_buyer_request(seller_id);
 	}
 	else
 	{
@@ -58,14 +44,12 @@ seller_Details * login(seller_Details *seller_root )
 	}
 }
 
-/*******************************************************************************************
-**
-**  FUNCTION NAME   : save_product_info_file
-**  DESCRIPTION     : In this function it stores the data of the products information in a file
-**  RETURN          :  No Return 
-**  PARAMETERS      : Structure product_details variable product_root
-*******************************************************************************************/
-
+/**************************************************************
+*FUNCTION NAME           :       save_product_info_file
+*DESCRIPTION             :       this function used here to save the product details into the file 
+*RETURN                  :       null
+*PARAMETERS              :       Structure product_Details variable product_root
+****************************************************************/
 void save_product_info_file(product_details *product_root)
 {
 	product_details *p = product_root  ;
@@ -88,15 +72,12 @@ void save_product_info_file(product_details *product_root)
 	
 	fclose(fptr);
 }
-
-/*******************************************************************************************
-**
-**  FUNCTION NAME   : get_prodouct_seller_id
-**  DESCRIPTION     : In this function it stores the data of the buyer in a file
-**  RETURN          :  No Return 
-**  PARAMETERS      : Structure buyer_Details variable Source
-*******************************************************************************************/
-
+/**************************************************************
+*FUNCTION NAME           :       get_prodouct_seller_id
+*DESCRIPTION             :       this function used here to save the product details into the file 
+*RETURN                  :       null
+*PARAMETERS              :       Structure product_Details variable product_root
+****************************************************************/
 product_details *get_prodouct_seller_id(product_details *p , int seller_id)
 {
 		 
@@ -105,18 +86,13 @@ product_details *get_prodouct_seller_id(product_details *p , int seller_id)
 			printf("product list is empty\n");
 			return NULL;
 		}
-
-		char ch ;
-		
-		while(p!=NULL)
+	         char ch ;
+	        while(p!=NULL)
 		{
 			printf("seller id is %d constant %d \n",p->seller_id , seller_id);
 			if(p->seller_id == seller_id)
 			{
-				//printf("seller id is %d\n",p->seller_id);
-				
-				//printf("address %p\n",p);
-				return p;
+			     return p;
 			}
 			
 			p = p->next;
@@ -229,10 +205,7 @@ return seller_root;
 }
 seller_Details *create_lisr_of_seller(seller_Details *source_1 , seller_Details DATA)
 {
-
-	//printf("crete fun source address :%p\n",source_1);
-	
-	static seller_Details *source;
+        static seller_Details *source;
 	source = source_1 ;
 	if(source == NULL)
 	{
@@ -261,27 +234,18 @@ seller_Details *create_lisr_of_seller(seller_Details *source_1 , seller_Details 
 		while(p->next != NULL)
 		 {
 		 	p = p->next ;
-				 	
-		 }
-		  
+	          }
 		p->next = temp ;
 		temp->next = NULL ;
-		 
-	}
-	
+        }
 	return source ;	
-	
 }
 seller_Details *login_seller(seller_Details *seller_root,char *user_name , char *pswd)
 {
 	seller_Details *p = seller_root ;
-	
-	
-	
 	int flag = 0 ;
 	while(p != NULL)
 	{
-	
 		if(strcmp(p->name ,user_name) == 0 )
 		{
 			if(strcmp(p->password , pswd )== 0)
@@ -291,11 +255,9 @@ seller_Details *login_seller(seller_Details *seller_root,char *user_name , char 
 				{
 					printf("%s and %d is blokced\n",user_name ,p->id);
 					return NULL;
-					
 				}
 				return p ;
 			}
-			
 		}
 		
 		p = p->next ; 
@@ -366,8 +328,6 @@ int new_registration_to_file()
 	}
 	else
 	{
-	
-		
 		printf("enter the name\n");
 		getchar();
 		fgets(seller_data.name , 30 , stdin);
@@ -396,9 +356,7 @@ int new_registration_to_file()
 		
 		fprintf(fptr,"%s,%d,%ld,%s,%s,%s\n",seller_data.name,seller_data.id ,seller_data.phoneNo ,seller_data.emailId ,seller_data.panNo,seller_data.password); 
 	}
-	
 	fclose(fptr);
-	
 }
 
 seller_Details *file_to_list(seller_Details *seller_root_1)
@@ -421,19 +379,14 @@ seller_Details *file_to_list(seller_Details *seller_root_1)
 	{
 		while(!feof(fptr))
 		{
-		
-			if(!(fgets(buffer,BUFFER_SIZE,fptr)))
+		        if(!(fgets(buffer,BUFFER_SIZE,fptr)))
 			{
-				//printf("string reading is fail\n");
 				break ;
 			}
 			else 
-			{
-					q_data = question_extraction_from_file(buffer , q_data);
+			{  
+				       q_data = seller_extraction_from_file(buffer , q_data);
 					seller_root = create_lisr_of_seller(seller_root ,q_data );
-					
-					//printf("return add %p\n",seller_root);
-				
 			}
 		}			
 	}
@@ -443,7 +396,7 @@ seller_Details *file_to_list(seller_Details *seller_root_1)
 	return seller_root;
 }
 
-seller_Details question_extraction_from_file(char *str , seller_Details q_data)
+seller_Details seller_extraction_from_file(char *str , seller_Details q_data)
 {
 	//printf("str recv: %s\n",str);
 	
@@ -494,13 +447,10 @@ seller_Details question_extraction_from_file(char *str , seller_Details q_data)
 
 product_details *product_registration(product_details *root)
 {
-	
 	char *str  = "product_info.txt";
-	
 	char buffer[BUFFER_SIZE];
 	FILE *fptr = NULL;
 	product_details p_data ;
-	
 	int seller_num =0 ;
 	fptr = fopen(str,"r");
 	if(fptr == NULL)
@@ -514,21 +464,15 @@ product_details *product_registration(product_details *root)
 		
 		while(!feof(fptr))
 		{
-		
-			if(!(fgets(buffer,BUFFER_SIZE,fptr)))
+		        if(!(fgets(buffer,BUFFER_SIZE,fptr)))
 			{
-				//printf("file is empty\n");
 				break ;
 			}
 			else 
 			{
-				
-					p_data = data_extraction_from_buffer(buffer ,p_data ,&seller_num);
-					
-					p_data.seller_id =  seller_num ;
-					//printf("point :sller-id %d prod: %d\n",p_data.seller_id ,p_data.product_id );
-					//getchar();
-					root = create_list_for_product(root , p_data);	
+				p_data = data_extraction_from_buffer(buffer ,p_data ,&seller_num);
+				p_data.seller_id =  seller_num ;
+				root = create_list_for_product(root , p_data);	
 				
 			}
 		}
@@ -539,7 +483,6 @@ return root;
 product_details data_extraction_from_buffer(char *str, product_details DATA , int *seller_id)
 {
 	int index = 0 , i =0 , j =0 ,l = 0, date_index = 0 , num = 0 ;
-	
 	char *piece = NULL;
 	char *piece_date = NULL;
 	char temp[10] ;
@@ -578,9 +521,6 @@ product_details data_extraction_from_buffer(char *str, product_details DATA , in
 			}
 			else if(index == 5)
 			{
-				//printf("str :%s\n",piece);
-				
-				
 				piece_date = strtok(piece,"-");
 				while(piece_date !=NULL)
 				{
@@ -589,9 +529,6 @@ product_details data_extraction_from_buffer(char *str, product_details DATA , in
 				}
 				
 				DATA.end_date[date_index++] = atoi(temp);
-				
-				//printf("date :%d-%d-%d \n",DATA.end_date[0] ,DATA.end_date[1] , DATA.end_date[2] );
-				//getchar();
 			}
 			piece = strtok(NULL,",");
 		}
@@ -602,27 +539,20 @@ product_details data_extraction_from_buffer(char *str, product_details DATA , in
 
 product_details *create_list_for_product(product_details *source , product_details p_data)
 {
-	
-	
 	if(source == NULL)
 	{
 		source = (product_details *) malloc(sizeof(product_details));
 		  
 		  source->seller_id = p_data.seller_id ;
-		 // printf("sller-id %d\n",source->seller_id);
 		  source->product_id = p_data.product_id ;
 		  strcpy(source->product_name,p_data.product_name);
 		  strcpy(source->product_details , p_data.product_details);
 		  source->product_price = p_data.product_price;
 		  for(int i = 0 ; i <3 ; i++)
 		  {
-		  	//printf("data date :%d\n",p_data.end_date[i]);
-		   	 source->end_date[i] = p_data.end_date[i] ;
-		    	//printf("source date :%d\n",source->end_date[i]);
-		    
-		   }
+		       source->end_date[i] = p_data.end_date[i] ;
+		  }
 		source->next = NULL;
-		
 	}
 	else 
 	{
@@ -640,36 +570,24 @@ product_details *create_list_for_product(product_details *source , product_detai
 		while(p->next != NULL)
 		 {
 		 	p = p->next ;
-				 	
 		 }
-		  
-		p->next = temp ;
+		 p->next = temp ;
 		temp->next = NULL ;
-		
 	}
-	
-	//printf("source is return %p\n",root);
-	return source;
-	
+	return source;	
 }
 
 
 int *lookup(product_details *source, int prod_id , int *index )
 {
-	
-	
-	 int count = 1 , check_flag = 0;
-	 
-	 if(source ==  NULL)
+	int count = 1 , check_flag = 0;
+        if(source ==  NULL)
 	 {
 		printf("list is empty\n") ;
 		return NULL ;
 	  }
-	
 	product_details *p = source ;
-	
 	int i = 0 , j =0;
-	
 	while(p!=NULL)
 	{
 		if(p->product_id  == prod_id)
@@ -681,7 +599,6 @@ int *lookup(product_details *source, int prod_id , int *index )
 		else 
 		{
 			count++ ;
-				
 		}
 		p = p->next ;
 	}
@@ -699,43 +616,31 @@ int *lookup(product_details *source, int prod_id , int *index )
 int* len_of_list(product_details  *source ,int *index)
 {
 	int count =0 ;
-	
 	if(source ==  NULL)
 	{
 		printf("list is empty\n") ;
 		return NULL ;
 	}
-	
-	
 	product_details   *p = source ;
-	
-	while(p!=NULL)
+        while(p!=NULL)
 	{
 		count ++;	
 		p = p->next ;
 	}
-	
 	*index = count ;
-	
-	return index ;	
+        return index ;	
 }
 
 
 product_details *delete_product(product_details *source ,int p_id)
 {
-	
 	int position = 0   , len = 0 , link =1;
-	
 	char ch ;
-	
-	//printf("source addres:%p\n",source);
 	if(source ==  NULL)
 	{
 		printf("list is empty\n") ;
 		return NULL ;
 	 }
-	 
-	 
 	product_details *p = source ;
 	product_details *temp = source  ;
 	
@@ -755,14 +660,11 @@ product_details *delete_product(product_details *source ,int p_id)
 		}
 		else if(position < len)
 		{
-				 
 			while(link < position-1)
 			{
 				temp = temp->next;
 				link++ ;
-					
-			}
-			
+			  }
 			product_details* del = temp->next;
 			del->next = del->next ;
 			temp->next = del->next ;		
@@ -771,49 +673,36 @@ product_details *delete_product(product_details *source ,int p_id)
 		else if(position == len)
 		{
 			link = 1 ;
-			
-			
 			while(link < position-1)
 			{
 				temp = temp->next; 
 				link++;
 			}
-			
 			temp->next = NULL;
-			
-		
 		}
 	}
 	else 
 	printf("product -id is  not deleted\n");
-
 return source;
-	
 }
 
 product_details * modify_product_details(product_details *p_root ,int id , seller_Details *selle_id)
 {
-
-		product_details *p = p_root ;
+	product_details *p = p_root ;
 		if(p==NULL)
 		{
 			printf("product list is empty\n");
 			return NULL;
 		}
-		//product_details *p = p_root ;
 		
 		char ch ;
-		
 		while(p!=NULL)
 		{
 			if(p_root->product_id == id)
 			{
 				printf("Name: %s, Details %s,Price %d ,End-Date %d-%d-%d \n",p_root->product_name , p_root->product_details,p_root->product_price,p_root->end_date[0],p_root->end_date[1],p_root->end_date[2]);
-				
 				printf("enter y to update\n");
-				
 				scanf(" %c",&ch);
-				
 				if(ch == 'y' || ch == 'Y')
 				{
 					printf("enter the Product name \n");
@@ -841,7 +730,6 @@ product_details * modify_product_details(product_details *p_root ,int id , selle
 			
 			p = p->next;
 		}
-		
 	return p_root;
 }
 
@@ -893,7 +781,6 @@ void adding_the_product_into_file(int selle_id)
 		
 		fprintf(fptr,"%d,%d,%s,%s,%d,%d-%d-%d\n",selle_id,p_root.product_id,p_root.product_name,p_root.product_details,p_root.product_price,p_root.end_date[0],p_root.end_date[1],p_root.end_date[2]);
 	}
-	
 	fclose(fptr);
 }
 
