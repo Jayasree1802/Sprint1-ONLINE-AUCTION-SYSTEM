@@ -321,7 +321,7 @@ void block_sller(seller_Details *source)
 
 /*******************************************************************************************
 **
-**  FUNCTION NAME   : admin
+**  FUNCTION NAME   : block_buyer
 **  DESCRIPTION     : It is the function admin has authority to block the buyer
 **  PARAMETERS      : structure buyer_Details with variable source
 **  RETURN          :  No Return 
