@@ -2,18 +2,15 @@
 #include<stdlib.h>
 #include"header.h"
 
-
-
-
-
+// This function is used for getting the design 
 void design()
 {
 	for(int i = 0 ; i <30 ; i++)
 		printf("*");
-	
 	printf("\n");
 }
 
+// This is the main menu of auction system
 
 int main()
 {
@@ -21,9 +18,7 @@ int main()
 	seller_Details *seller_root = NULL;
 	buyer_Details *buyer_root = NULL;
 	product_details *product_root = NULL;
-	
 	int ch;
-	
 	design() ;
 	printf("Welcome To Auction System\n");
 	design() ;
