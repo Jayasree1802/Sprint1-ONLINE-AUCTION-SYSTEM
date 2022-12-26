@@ -6,27 +6,6 @@
 #include<string.h>
 #include"header.h"
 
-/*******************************************************************************************
-**  FUNCTION NAME   :    display
-**  DESCRIPTION     :    In this function it display the data of the sellers in a file
-**  PARAMETERS      :    Structure seller_Details variable seller_root
-**  RETURN          :     No Return 
-*******************************************************************************************/
-
-void display(seller_Details *seller_root)
-{
-	//printf("seller_root:%p\n",seller_root);
-	
-	while(seller_root!=NULL)
-	{
-	
-		printf("%s,%d,%ld,%s,%s,%s\n",seller_root->name,seller_root->id ,seller_root->phoneNo ,seller_root->emailId ,seller_root->panNo,seller_root->password);	
-		
-		
-		seller_root = seller_root->next;
-	}
-}
-
 
 
 /*******************************************************************************************
@@ -254,6 +233,28 @@ seller_Details * login(seller_Details *seller_root )
 	{
 		printf("%s seller is not found\n",seller_name);
 		return NULL;
+	}
+}
+
+
+/*******************************************************************************************
+**  FUNCTION NAME   :    display
+**  DESCRIPTION     :    In this function it display the data of the sellers in a file
+**  PARAMETERS      :    Structure seller_Details variable seller_root
+**  RETURN          :     No Return 
+*******************************************************************************************/
+
+void display(seller_Details *seller_root)
+{
+	//printf("seller_root:%p\n",seller_root);
+	
+	while(seller_root!=NULL)
+	{
+	
+		printf("%s,%d,%ld,%s,%s,%s\n",seller_root->name,seller_root->id ,seller_root->phoneNo ,seller_root->emailId ,seller_root->panNo,seller_root->password);	
+		
+		
+		seller_root = seller_root->next;
 	}
 }
 
