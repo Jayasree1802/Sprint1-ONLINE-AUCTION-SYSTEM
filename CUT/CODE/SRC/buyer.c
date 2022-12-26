@@ -110,7 +110,7 @@ buyer_Details *buyer(buyer_Details *source , seller_Details *seller_root , produ
 		design() ;
 		printf("1) Registration\n");
 		printf("2) Login\n");
-		printf("3) Product Disply \n");
+		printf("3) Buyer Display \n");
 		printf("4) Biding history\n");
 		printf("5) exit\n");
 		design() ;
