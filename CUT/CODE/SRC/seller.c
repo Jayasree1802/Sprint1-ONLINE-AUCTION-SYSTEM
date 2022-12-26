@@ -6,11 +6,10 @@
 #include"header.h"
 
 /*******************************************************************************************
-**
-**  FUNCTION NAME   : display
-**  DESCRIPTION     : In this function it display the data of the sellers in a file
-**  PARAMETERS      : Structure seller_Details variable seller_root
-**  RETURN          :  No Return 
+**  FUNCTION NAME   :    display
+**  DESCRIPTION     :    In this function it display the data of the sellers in a file
+**  PARAMETERS      :    Structure seller_Details variable seller_root
+**  RETURN          :     No Return 
 *******************************************************************************************/
 
 void display(seller_Details *seller_root)
@@ -28,7 +27,6 @@ void display(seller_Details *seller_root)
 }
 
 /*******************************************************************************************
-**
 **  FUNCTION NAME   : login
 **  DESCRIPTION     : It is the function to login for seller
 **  PARAMETERS      : Structure seller_Details variable seller_root
@@ -58,7 +56,6 @@ seller_Details * login(seller_Details *seller_root )
 }
 
 /*******************************************************************************************
-**
 **  FUNCTION NAME   : save_product_info_file
 **  DESCRIPTION     : In this function it stores the data of the products information in a file
 **  PARAMETERS      : Structure product_details variable product_root
@@ -89,7 +86,6 @@ void save_product_info_file(product_details *product_root)
 }
 
 /*******************************************************************************************
-**
 **  FUNCTION NAME   : get_prodouct_seller_id
 **  DESCRIPTION     : In this function it stores the data of the buyer in a file
 **  PARAMETERS      : Structure buyer_Details variable Source
@@ -126,7 +122,6 @@ product_details *get_prodouct_seller_id(product_details *p , int seller_id)
 }
 
 /*******************************************************************************************
-**
 **  FUNCTION NAME   : seller
 **  DESCRIPTION     : In this function it is the menu for seller
 **  PARAMETERS      : Structure seller_Details variable Seller_root, Structure product_details variable product_root
@@ -235,7 +230,6 @@ return seller_root;
 }
 
 /*******************************************************************************************
-**
 **  FUNCTION NAME   : create_lisr_of_seller
 **  DESCRIPTION     : In this function it creates the linked list for sellers
 **  PARAMETERS      : Structure seller_Details variable Source_1 and with variable DATA
@@ -289,7 +283,6 @@ seller_Details *create_lisr_of_seller(seller_Details *source_1 , seller_Details 
 }
 
 /*******************************************************************************************
-**
 **  FUNCTION NAME   : login_seller
 **  DESCRIPTION     : It is the function seller login into the application
 **  PARAMETERS      : Structure seller_Details variable seller_root, user name and password 
@@ -329,7 +322,6 @@ seller_Details *login_seller(seller_Details *seller_root,char *user_name , char 
 }
 
 /*******************************************************************************************
-**
 **  FUNCTION NAME   : check_the_buyer_request
 **  DESCRIPTION     : In this function it checks the request of a buyer who wants to buy his products
 **  PARAMETERS      : Structure seller_Details variable seller
@@ -381,7 +373,6 @@ void check_the_buyer_request(seller_Details *seller)
 
 }
 /*******************************************************************************************
-**
 **  FUNCTION NAME   : new_registration_to_file
 **  DESCRIPTION     : In this function it stores the seller details in a file when registers
 **  PARAMETERS      : No parameters
@@ -437,7 +428,6 @@ int new_registration_to_file()
 	
 }
 /*******************************************************************************************
-**
 **  FUNCTION NAME   : file_to_list
 **  DESCRIPTION     : In this function it read the data from file to linked list for sellers 
 **  PARAMETERS      : Structure seller_Details variable Seller_root_1
@@ -487,7 +477,6 @@ seller_Details *file_to_list(seller_Details *seller_root_1)
 }
 
 /*******************************************************************************************
-**
 **  FUNCTION NAME   : question_extraction_from_file
 **  DESCRIPTION     : In this function it extract the data of sellers from linked list
 **  PARAMETERS      : Structure seller_Details variable string and with variable q_data from buffer
@@ -543,7 +532,6 @@ seller_Details question_extraction_from_file(char *str , seller_Details q_data)
 }	
 
 /*******************************************************************************************
-**
 **  FUNCTION NAME   : product_registration
 **  DESCRIPTION     : It is the function to register the products by the seller
 **  PARAMETERS      : Structure product_details variable root
@@ -594,7 +582,6 @@ return root;
 }
 
 /*******************************************************************************************
-**
 **  FUNCTION NAME   : data_extarction_from_buffer
 **  DESCRIPTION     : In this function it extract the data of sellers from buffer
 **  PARAMETERS      : Structure product_Details variable DATA, seller_id and str 
@@ -664,7 +651,6 @@ product_details data_extraction_from_buffer(char *str, product_details DATA , in
 }
 
 /*******************************************************************************************
-**
 **  FUNCTION NAME   : create_list_for_product
 **  DESCRIPTION     : In this function it creates the  linked list for product details
 **  PARAMETERS      : Structure product_Details variable source and with variable P_data
@@ -718,14 +704,10 @@ product_details *create_list_for_product(product_details *source , product_detai
 		temp->next = NULL ;
 		
 	}
-	
-	//printf("source is return %p\n",root);
 	return source;
-	
 }
 
 /*******************************************************************************************
-**
 **  FUNCTION NAME   : lookup
 **  DESCRIPTION     : In this function it extract the data of sellers from linked list
 **  PARAMETERS      : Structure seller_Details variable string and with variable q_data from buffer
@@ -733,20 +715,14 @@ product_details *create_list_for_product(product_details *source , product_detai
 *******************************************************************************************/
 int *lookup(product_details *source, int prod_id , int *index )
 {
-	
-	
 	 int count = 1 , check_flag = 0;
-	 
-	 if(source ==  NULL)
+	  if(source ==  NULL)
 	 {
 		printf("list is empty\n") ;
 		return NULL ;
 	  }
-	
 	product_details *p = source ;
-	
 	int i = 0 , j =0;
-	
 	while(p!=NULL)
 	{
 		if(p->product_id  == prod_id)
@@ -773,53 +749,52 @@ int *lookup(product_details *source, int prod_id , int *index )
 	return index ;
 }
 
+/*******************************************************************************************
+**  FUNCTION NAME   : len_of_list
+**  DESCRIPTION     : this function is used to find the length of the product list
+**  PARAMETERS      : Structure product_details  variable source and integer index
+**  RETURN          :  Return integer index value
+*******************************************************************************************/
 int* len_of_list(product_details  *source ,int *index)
 {
 	int count =0 ;
-	
 	if(source ==  NULL)
 	{
 		printf("list is empty\n") ;
 		return NULL ;
 	}
-	
-	
 	product_details   *p = source ;
-	
-	while(p!=NULL)
+        while(p!=NULL)
 	{
 		count ++;	
 		p = p->next ;
 	}
 	
 	*index = count ;
-	
 	return index ;	
 }
 
-
+/*******************************************************************************************
+**  FUNCTION NAME   : delete_product
+**  DESCRIPTION     : this function is used to delete the  product from the list 
+**  PARAMETERS      : Structure product_details variable source and  integer  p_id 
+**  RETURN          :  Return source
+*******************************************************************************************/
 product_details *delete_product(product_details *source ,int p_id)
 {
 	
 	int position = 0   , len = 0 , link =1;
-	
 	char ch ;
-	
-	//printf("source addres:%p\n",source);
 	if(source ==  NULL)
 	{
 		printf("list is empty\n") ;
 		return NULL ;
 	 }
-	 
-	 
 	product_details *p = source ;
 	product_details *temp = source  ;
 	
 	position = *lookup(p,p_id,&position) ; 
 	len = *len_of_list(p,&len);
-	
-
 	printf("please enter y to delete \n");
 	scanf(" %c",&ch);
 	
@@ -848,26 +823,26 @@ product_details *delete_product(product_details *source ,int p_id)
 		else if(position == len)
 		{
 			link = 1 ;
-			
-			
 			while(link < position-1)
 			{
 				temp = temp->next; 
 				link++;
 			}
-			
 			temp->next = NULL;
-			
-		
 		}
 	}
 	else 
 	printf("product -id is  not deleted\n");
 
 return source;
-	
 }
 
+/*******************************************************************************************
+**  FUNCTION NAME   : modify_product_details
+**  DESCRIPTION     : this function is used to modify the  product  details in the list 
+**  PARAMETERS      : Structure product_details variable p_root and  integer id and selle_id from structure seller_Details
+**  RETURN          :  Return p_root
+*******************************************************************************************/
 product_details * modify_product_details(product_details *p_root ,int id , seller_Details *selle_id)
 {
 
@@ -918,11 +893,15 @@ product_details * modify_product_details(product_details *p_root ,int id , selle
 			
 			p = p->next;
 		}
-		
 	return p_root;
 }
 
-
+/*******************************************************************************************
+**  FUNCTION NAME   : display_product
+**  DESCRIPTION     : this function is used to display the  products details from the list list
+**  PARAMETERS      : Structure product_details variable product_root  
+**  RETURN          :  No Return
+*******************************************************************************************/
 void display_product(product_details *product_root)
 {
 	product_details *p = product_root ;
@@ -935,6 +914,12 @@ void display_product(product_details *product_root)
 	}
 }
 
+/*******************************************************************************************
+**  FUNCTION NAME   : adding_the_product_into_file
+**  DESCRIPTION     : In this function is used to add the  products into the list 
+**  PARAMETERS      : integer selle_id
+**  RETURN          :  No Return
+*******************************************************************************************/
 void adding_the_product_into_file(int selle_id)
 {
 	FILE *fptr = NULL;
