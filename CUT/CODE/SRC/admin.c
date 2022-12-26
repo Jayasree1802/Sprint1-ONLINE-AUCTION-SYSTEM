@@ -1,5 +1,6 @@
 //definition  file for admin
 
+//header files
 #include<stdio.h>
 #include<string.h>
 #include"header.h"
@@ -29,46 +30,46 @@ void admin(seller_Details *seller_root , buyer_Details *buyer_root)
 			scanf("%d",&ch);
 			switch(ch)
 			{
-				case 1:
+				case MANAGE_SELLER:
 					printf("1) Block seller\n");
 					printf("2) List seller\n");
 					scanf("%d",&ch);
 					switch(ch)
 					{
-						case 1: 
+						case BLOCK_SELLER: 
 							block_sller(seller_root);      
 							break;
-						case 2: 
+						case DISPLAY_SELLER_LIST: 
 							display(seller_root);
 							break;
 					}
 					break;
-				case 2: 
+				case MANAGE_BUYER: 
 					printf("1) Block buyer\n");
 					printf("2) List buyer\n");
 					scanf("%d",&ch);
 					switch(ch)
 					{
-						case 1: 
+						case BLOCK_BUYER: 
 							block_buyer(buyer_root);
 							break;
-						case 2: 
+						case LIST_BUYER: 
 							display_buyer(buyer_root);
 							break;
 					}
 					break ;
-				case 3: 
+				case MANAGE_PRODUCTS: 
 					printf("1) Add product \n");
 					printf("2) Remove products\n");
 					printf("3) modify product\n");
 					scanf("%d",&ch);
 					switch(ch)
 					{
-						case 1: 
+						case ADD_PRODUCTS: 
 							printf("seller_root->link %p\n",seller_root->link );
 							add_product_to_list(seller_root->link );	
 							break ;
-						case 2:
+						case REMOVE_PRODUCTS:
 							if(seller_root->link != NULL)
 							{
 								printf("enter the product id\n");
@@ -80,7 +81,7 @@ void admin(seller_Details *seller_root , buyer_Details *buyer_root)
 							else
 								printf("product list is empty\n");
 							break;
-						case 3:
+						case MODIFY_PRODUCTS:
 							if(seller_root->link != NULL)
 							{
 								printf("enter the product id\n");
@@ -93,7 +94,7 @@ void admin(seller_Details *seller_root , buyer_Details *buyer_root)
 							printf("product list is empty\n");
 								break;
 					}
-					case 4: 
+					case EXIT: 
 					exit_flag = 1;
 			}
 		if(exit_flag == 1)
