@@ -39,11 +39,13 @@ void admin(seller_Details *seller_root , buyer_Details *buyer_root)
 						case BLOCK_SELLER: 
 							block_sller(seller_root);      
 							break;
+							
 						case DISPLAY_SELLER_LIST: 
 							display(seller_root);
 							break;
 					}
 					break;
+					
 				case MANAGE_BUYER: 
 					printf("1) Block buyer\n");
 					printf("2) List buyer\n");
@@ -66,21 +68,22 @@ void admin(seller_Details *seller_root , buyer_Details *buyer_root)
 					switch(ch)
 					{
 						case ADD_PRODUCTS: 
-							printf("seller_root->link %p\n",seller_root->link );
 							add_product_to_list(seller_root->link );	
 							break ;
+							
 						case REMOVE_PRODUCTS:
 							if(seller_root->link != NULL)
 							{
 								printf("enter the product id\n");
 								scanf("%d",&p_id);
-								//printf("sending  %p\n",product_root);
 								seller_root->link = delete_product(seller_root->link ,p_id );
 								save_product_info_file(seller_root->link);
 							}
+							
 							else
 								printf("product list is empty\n");
 							break;
+							
 						case MODIFY_PRODUCTS:
 							if(seller_root->link != NULL)
 							{
@@ -90,6 +93,7 @@ void admin(seller_Details *seller_root , buyer_Details *buyer_root)
 								seller_root->link = modify_product_details(seller_root->link ,p_id,seller_root);
 								save_product_info_file(seller_root->link);
 							}
+							
 							else
 							printf("product list is empty\n");
 								break;
