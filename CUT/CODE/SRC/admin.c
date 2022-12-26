@@ -95,15 +95,11 @@ void admin(seller_Details *seller_root , buyer_Details *buyer_root)
 					}
 					case 4: 
 					exit_flag = 1;
-					
 			}
 		if(exit_flag == 1)
 			break;	
 		}	
-			
-		
 	}	
-	
 }
 
 /*******************************************************************************************
@@ -116,13 +112,9 @@ void admin(seller_Details *seller_root , buyer_Details *buyer_root)
 
 int admin_login()
 {
-
 	admin_data admin_root ;
-	
 	int admin_pswd_flag = 0 , count = 0;
-	
 	char user[BUFFER_SIZE] , password[BUFFER_SIZE];
-	
 	admin_root = read_admin_file(admin_root);
 	while(1)
 	{
@@ -151,13 +143,10 @@ int admin_login()
 				printf("please enter correct format\n");
 				goto LOOP;
 			}
-			
-			
 		if(strcmp(admin_root.user_name ,user ) == 0)
 		{
 			if(strcmp(admin_root.pswd ,password ) == 0)
 			{
-				
 				return 1;
 			}
 		}
@@ -166,7 +155,6 @@ int admin_login()
 			admin_pswd_flag++;
 			printf("please enter correct Password \n");
 		}
-		
 		if(admin_pswd_flag == 3)
 		{
 			printf("Too many attempts please try again\n");
@@ -177,7 +165,6 @@ int admin_login()
 }
 
 /*******************************************************************************************
-**
 **  FUNCTION NAME   : read_admin_file
 **  DESCRIPTION     : In this function it  reads the admin data to a file 
 **  PARAMETERS      : Structure admin_data with variable source
@@ -187,7 +174,6 @@ int admin_login()
 admin_data read_admin_file(admin_data source)
 {
 	char *str = "admin_info.txt";
-	
 	FILE *fptr = NULL ;
 	char *piece ;
 	char buffer[BUFFER_SIZE];
@@ -205,7 +191,6 @@ admin_data read_admin_file(admin_data source)
 		
 			if(!(fgets(buffer,BUFFER_SIZE,fptr)))
 			{
-				//printf("string reading is fail\n");
 				break ;
 			}
 			else 
@@ -213,8 +198,6 @@ admin_data read_admin_file(admin_data source)
 				piece = strtok(buffer,",");
 				while(piece !=NULL)
 				{
-					
-					//printf("str :%s\n",piece);
 					if(index == 1)
 					{
 						strcpy(source.user_name ,piece );
@@ -236,7 +219,6 @@ return source ;
 }
 
 /*******************************************************************************************
-**
 **  FUNCTION NAME   : add_product_to_list
 **  DESCRIPTION     : In this function admin adds the products to the linkedl list
 **  PARAMETERS      : Structure product_Details with variable source
@@ -245,8 +227,7 @@ return source ;
 
 product_details *add_product_to_list(product_details *source)
 {
-	
-		product_details data ;
+	        product_details data ;
 		char *str  = "product_info.txt";
 		FILE *fptr = NULL;
 		
@@ -256,7 +237,6 @@ product_details *add_product_to_list(product_details *source)
 			printf("%s file is not found please check\n",str);
 			return NULL;
 		}
-		
 		printf("enter the product name\n");
 		getchar();
 		fgets(data.product_name , 30 , stdin);
@@ -291,7 +271,6 @@ product_details *add_product_to_list(product_details *source)
 }
 
 /*******************************************************************************************
-**
 **  FUNCTION NAME   : admin
 **  DESCRIPTION     : It is the function admin has authority to block the seller
 **  PARAMETERS      : structure seller_Details with variable source
@@ -301,7 +280,6 @@ product_details *add_product_to_list(product_details *source)
 void block_sller(seller_Details *source)
 {
 	seller_Details	*p = source ;
-	
 	int id ;
 	printf("enter the sller id\n");
 	scanf("%d",&id);
@@ -320,7 +298,6 @@ void block_sller(seller_Details *source)
 }
 
 /*******************************************************************************************
-**
 **  FUNCTION NAME   : block_buyer
 **  DESCRIPTION     : It is the function admin has authority to block the buyer
 **  PARAMETERS      : structure buyer_Details with variable source
@@ -329,17 +306,14 @@ void block_sller(seller_Details *source)
 void block_buyer(buyer_Details *source)
 {
 	buyer_Details	*p = source ;
-	
 	int id ;
 	printf("enter the buyer id\n");
 	scanf("%d",&id);
-	
 	while(p!= NULL)
 	{
 		if(p->id == id)
 		{
 			p->status = 1;
-			
 			printf("%s,%d is blocked successfully\n",p->name,p->id );
 		}
 		
