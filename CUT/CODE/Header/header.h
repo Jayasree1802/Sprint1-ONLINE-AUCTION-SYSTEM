@@ -1,7 +1,7 @@
 #include<stdio.h>
 #define BUFFER_SIZE 1000
 
-//seller structutre
+//struct seller_Details to store attributes for entity seller
 typedef struct seller_Details
 {
         int id;
@@ -31,7 +31,7 @@ typedef struct seller_Details
         struct seller_Details *next;
 }seller_Details;
 
-//product structure
+//struct product_Details to store attributes for entity product
 typedef struct product_details
 {
 	int product_id ;
@@ -44,7 +44,7 @@ typedef struct product_details
 	struct product_details *next;
 }product_details;
 
-//structure of buyer
+//struct buyer_Details to store attributes for entity buyer
 
 typedef struct buyer_Details
 {
@@ -63,7 +63,7 @@ typedef struct buyer_Details
         
 }buyer_Details;
 
-//structure of admin
+//struct admin_data to store attributes for entity admin
 
 typedef struct admin_data
 {
@@ -83,6 +83,8 @@ seller_Details question_extraction_from_file(char * , seller_Details );
 
 
 void design() ;
+
+//Functions of seller
 
 seller_Details *seller(seller_Details * , product_details *);
 
@@ -134,6 +136,7 @@ void auction_for_product(product_details * , seller_Details * , buyer_Details *)
 product_details *get_the_product_detail(product_details * ,int);
 
 void display_buyer(buyer_Details *);
+
 
 //functions of admin menu
 
