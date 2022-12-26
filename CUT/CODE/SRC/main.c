@@ -14,8 +14,7 @@ void design()
 
 int main()
 {
-
-	seller_Details *seller_root = NULL;
+        seller_Details *seller_root = NULL;
 	buyer_Details *buyer_root = NULL;
 	product_details *product_root = NULL;
 	int ch;
@@ -55,8 +54,5 @@ int main()
 				exit(0); 
 				break ;
 		}
-		
-	
-	}
-		
+	}	
 }
