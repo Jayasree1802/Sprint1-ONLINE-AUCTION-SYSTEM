@@ -17,14 +17,14 @@ void auction_for_product(product_details *prod_root , seller_Details *seller_roo
 	
 	FILE *fptr = NULL ;
 	
-	fptr = fopen(transcation,"a+");
+	fptr = fopen(transcation,"a+");    // File is opening in read,write mode
 	if(fptr == NULL)
 	{	
 		printf("%s opening is failed\n",transcation);
 		return ;
 	}
 	
-	sller_id = price_check(prod_root , seller_root );
+	sller_id = price_check(prod_root , seller_root );  //Function calling
 	
 	if((sller_id)!= NULL)
 	{
@@ -40,8 +40,8 @@ void auction_for_product(product_details *prod_root , seller_Details *seller_roo
 			
 			strcpy(sller_id->buyer_name , prod_root->product_name);
 			
-			fprintf(fptr,"%d,%d,%d,%d,%d\n",buyer_root->id ,prod_root->product_id,sller_id->id,prod_root->product_price ,product_amount);
-			fclose(fptr);
+			fprintf(fptr,"%d,%d,%d,%d,%d\n",buyer_root->id ,prod_root->product_id,sller_id->id,prod_root->product_price ,product_amount); //Writing a data into file
+			fclose(fptr);// File is closed
 		}
 		else
 		{
@@ -50,7 +50,7 @@ void auction_for_product(product_details *prod_root , seller_Details *seller_roo
 				sller_id->buyer_id_request[sller_id->count] = prod_root->product_id;
 				sller_id->buyer_request_amount[sller_id->count++] = prod_root->product_price ;
 				strcpy(sller_id->buyer_name , prod_root->product_name);
-				fprintf(fptr,"%d,%d,%d,%d,%d\n",buyer_root->id ,prod_root->product_id,sller_id->id,prod_root->product_price ,product_amount);
+				fprintf(fptr,"%d,%d,%d,%d,%d\n",buyer_root->id ,prod_root->product_id,sller_id->id,prod_root->product_price ,product_amount); // writing a data into file
 				
 				printf("enter y to continue biding\n");
 				printf("enter n to exit the biding\n");
@@ -62,7 +62,7 @@ void auction_for_product(product_details *prod_root , seller_Details *seller_roo
 					
 					if(product_amount >= prod_root->product_price )
 					{
-						//printf("price is %d\n",product_amount);
+						
 						sller_id->buyer_id_request[sller_id->count] = prod_root->product_id;
 						sller_id->buyer_request_amount[sller_id->count++] = prod_root->product_price ;
 						strcpy(sller_id->buyer_name , prod_root->product_name);
@@ -80,10 +80,10 @@ void auction_for_product(product_details *prod_root , seller_Details *seller_roo
 					
 					}
 				
-				}
-			}		
-		}	
-	}
+				}//if ends here
+			}//while ends here		
+		}//else ends here	
+	}//if ends here
 										
 }
 
@@ -149,7 +149,7 @@ void display_info(char *buffer)
 		}
 
 		piece = strtok(NULL,",");
-	}
+	}//while ends here
 }
 
 /*This Fuction is for displaying History
@@ -162,7 +162,7 @@ void history_display()
 	
 	char buffer[100];
 	int index = 0;
-	FILE *fptr = fopen(str ,"r");
+	FILE *fptr = fopen(str ,"r"); // File is opening in read mode
 	
 	if(fptr == NULL)
 	{
@@ -180,14 +180,14 @@ void history_display()
 			}
 			else 
 			{	
-				//printf("str : %s\n",buffer);
-				display_info(buffer);
+				
+				display_info(buffer);//function call
 					
 				
 			}
-		}
-		fclose(fptr);
-	}
+		}//while ends here
+		fclose(fptr); // file is closed
+	}//else ends here
 	
 			
 }
