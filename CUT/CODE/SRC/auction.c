@@ -14,34 +14,25 @@ void auction_for_product(product_details *prod_root , seller_Details *seller_roo
 	int check_flag = 0;
 	char ch ;
 	char *transcation = "biding_histry.txt";
-	
 	FILE *fptr = NULL ;
-	
 	fptr = fopen(transcation,"a+");    // File is opening in read,write mode
 	if(fptr == NULL)
 	{	
 		printf("%s opening is failed\n",transcation);
 		return ;
 	}
-	
 	sller_id = price_check(prod_root , seller_root );  //Function calling
-	
 	if((sller_id)!= NULL)
 	{
 		printf("enter the amount\n");
 		scanf("%d",&product_amount);
 		if(product_amount >= prod_root->product_price )
 		{
-			
-			
-			sller_id->buyer_id_request[sller_id->count] = prod_root->product_id;
-			
-			sller_id->buyer_request_amount[sller_id->count++] = prod_root->product_price ;
-			
-			strcpy(sller_id->buyer_name , prod_root->product_name);
-			
-			fprintf(fptr,"%d,%d,%d,%d,%d\n",buyer_root->id ,prod_root->product_id,sller_id->id,prod_root->product_price ,product_amount); //Writing a data into file
-			fclose(fptr);// File is closed
+		  sller_id->buyer_id_request[sller_id->count] = prod_root->product_id;
+		  sller_id->buyer_request_amount[sller_id->count++] = prod_root->product_price ;
+		  strcpy(sller_id->buyer_name , prod_root->product_name);
+		 fprintf(fptr,"%d,%d,%d,%d,%d\n",buyer_root->id ,prod_root->product_id,sller_id->id,prod_root->product_price ,product_amount); //Writing a data into file
+		 fclose(fptr);// File is closed
 		}
 		else
 		{
@@ -51,7 +42,6 @@ void auction_for_product(product_details *prod_root , seller_Details *seller_roo
 				sller_id->buyer_request_amount[sller_id->count++] = prod_root->product_price ;
 				strcpy(sller_id->buyer_name , prod_root->product_name);
 				fprintf(fptr,"%d,%d,%d,%d,%d\n",buyer_root->id ,prod_root->product_id,sller_id->id,prod_root->product_price ,product_amount); // writing a data into file
-				
 				printf("enter y to continue biding\n");
 				printf("enter n to exit the biding\n");
 				scanf(" %c",&ch);
@@ -59,11 +49,9 @@ void auction_for_product(product_details *prod_root , seller_Details *seller_roo
 				{
 					printf("enter the amount \n");
 					scanf("%d",&product_amount);
-					
 					if(product_amount >= prod_root->product_price )
 					{
-						
-						sller_id->buyer_id_request[sller_id->count] = prod_root->product_id;
+					        sller_id->buyer_id_request[sller_id->count] = prod_root->product_id;
 						sller_id->buyer_request_amount[sller_id->count++] = prod_root->product_price ;
 						strcpy(sller_id->buyer_name , prod_root->product_name);
 						fprintf(fptr,"%d,%d,%d,%d,%d\n",buyer_root->id ,prod_root->product_id,sller_id->id,prod_root->product_price ,product_amount);
@@ -72,20 +60,17 @@ void auction_for_product(product_details *prod_root , seller_Details *seller_roo
 					}
 					else
 					{
-						//printf("price is %d\n",product_amount);
 						sller_id->buyer_id_request[sller_id->count] = prod_root->product_id;
 						sller_id->buyer_request_amount[sller_id->count++] = prod_root->product_price ;
 						strcpy(sller_id->buyer_name , prod_root->product_name);
 						fprintf(fptr,"%d,%d,%d,%d,%d\n",buyer_root->id ,prod_root->product_id,sller_id->id,prod_root->product_price ,product_amount);
-					
 					}
-				
 				}//if ends here
 			}//while ends here		
 		}//else ends here	
 	}//if ends here
-										
 }
+
 
 
 /*This Fuction is for checking the price of user enterd
@@ -94,7 +79,7 @@ void auction_for_product(product_details *prod_root , seller_Details *seller_roo
 */
 seller_Details * price_check(product_details *p , seller_Details *q)
 {
-	//product_details *p = seller_root ;
+	product_details *p = seller_root ;
 	
 	while(p!=NULL)
 	{
@@ -102,12 +87,12 @@ seller_Details * price_check(product_details *p , seller_Details *q)
 		{
 			return q;
 		}
-	
-		p = p->next ;
+	        p = p->next ;
 	}
-	
 	return NULL;
 }
+
+
 
 /*This Fuction is for displaying information
 *parameter:: character pointer
@@ -115,14 +100,12 @@ seller_Details * price_check(product_details *p , seller_Details *q)
 */
 void display_info(char *buffer)
 {
-
-	int index = 0;
+        int index = 0;
 	char *piece ;
 	piece = strtok(buffer,",");
 	while(piece !=NULL)
 	{
-	
-		if(index  == 0)
+	  if(index  == 0)
 		{
 			printf("buyer-id %s,",piece);
 			index =1;	
@@ -147,10 +130,11 @@ void display_info(char *buffer)
 			printf("biding price %s\n",piece);
 			index = 5;
 		}
-
-		piece = strtok(NULL,",");
+                piece = strtok(NULL,",");
 	}//while ends here
 }
+
+
 
 /*This Fuction is for displaying History
 *parameter::No parameter returns 
@@ -159,11 +143,9 @@ void display_info(char *buffer)
 void history_display()
 {
 	char *str = "biding_histry.txt";
-	
 	char buffer[100];
 	int index = 0;
 	FILE *fptr = fopen(str ,"r"); // File is opening in read mode
-	
 	if(fptr == NULL)
 	{
 		printf("%s file is not found \n",str);
@@ -172,22 +154,16 @@ void history_display()
 	{
 		while(!feof(fptr))
 		{
-		
-			if(!(fgets(buffer,100,fptr)))
+		   if(!(fgets(buffer,100,fptr)))
 			{
 				//printf("file is empty\n");
 				break ;
 			}
 			else 
 			{	
-				
-				display_info(buffer);//function call
-					
-				
+			display_info(buffer);//function call
 			}
 		}//while ends here
 		fclose(fptr); // file is closed
 	}//else ends here
-	
-			
 }
