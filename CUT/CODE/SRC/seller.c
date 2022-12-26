@@ -1,7 +1,17 @@
+// definition file for seller
+
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
 #include"header.h"
+
+/*******************************************************************************************
+**
+**  FUNCTION NAME   : display
+**  DESCRIPTION     : In this function it display the data of the sellers in a file
+**  RETURN          :  No Return 
+**  PARAMETERS      : Structure seller_Details variable seller_root
+*******************************************************************************************/
 
 void display(seller_Details *seller_root)
 {
@@ -16,6 +26,15 @@ void display(seller_Details *seller_root)
 		seller_root = seller_root->next;
 	}
 }
+
+/*******************************************************************************************
+**
+**  FUNCTION NAME   : login
+**  DESCRIPTION     : It is the function to login for seller
+**  RETURN          :  No Return 
+**  PARAMETERS      : Structure seller_Details variable seller_root
+*******************************************************************************************/
+
 
 seller_Details * login(seller_Details *seller_root )
 {
@@ -38,6 +57,15 @@ seller_Details * login(seller_Details *seller_root )
 		return NULL;
 	}
 }
+
+/*******************************************************************************************
+**
+**  FUNCTION NAME   : save_product_info_file
+**  DESCRIPTION     : In this function it stores the data of the products information in a file
+**  RETURN          :  No Return 
+**  PARAMETERS      : Structure product_details variable product_root
+*******************************************************************************************/
+
 void save_product_info_file(product_details *product_root)
 {
 	product_details *p = product_root  ;
@@ -60,6 +88,14 @@ void save_product_info_file(product_details *product_root)
 	
 	fclose(fptr);
 }
+
+/*******************************************************************************************
+**
+**  FUNCTION NAME   : get_prodouct_seller_id
+**  DESCRIPTION     : In this function it stores the data of the buyer in a file
+**  RETURN          :  No Return 
+**  PARAMETERS      : Structure buyer_Details variable Source
+*******************************************************************************************/
 
 product_details *get_prodouct_seller_id(product_details *p , int seller_id)
 {
