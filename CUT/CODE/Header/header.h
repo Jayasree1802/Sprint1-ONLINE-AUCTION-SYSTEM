@@ -24,11 +24,7 @@ typedef struct seller_Details
         char emailId[50];
         long int phoneNo;
         char panNo[10];
-        char category[20];
         char password[20];
-        int base_price;
-        int sold_price ;
-        int product_status ;
         int buyer_id_request[10];
         int buyer_request_amount[10];
         char buyer_name[30];
@@ -47,8 +43,7 @@ typedef struct product_details
 	char product_name[20];
 	char product_details[30];
 	int product_price;
-	int end_date[3];
-	int seller_id ;
+        int seller_id ;
 	
 	struct product_details *next;
 }product_details;
