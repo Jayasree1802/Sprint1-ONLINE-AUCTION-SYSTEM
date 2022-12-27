@@ -2,7 +2,7 @@
 #include<stdlib.h>
 #include"header.h"
 
-// This function is used for getting the design 
+// This function is used for getting the design at output
 void design()
 {
 	for(int i = 0 ; i <30 ; i++)
@@ -10,7 +10,7 @@ void design()
 	printf("\n");
 }
 
-// This is the main menu of auction system
+// This is the main menu of auction system for to choose by the entered input
 
 int main()
 {
@@ -34,23 +34,23 @@ int main()
 		
 		switch(ch)
 		{
-			case 1: 
+			case ADMIN: 
 				if(seller_root != NULL && seller_root->link  != NULL) 
 					admin(seller_root , buyer_root);
 				else 
 					printf("seller and product are not listed\n");
 				break;
-			case 2: 
+			case BUYER: 
 				if(seller_root != NULL && seller_root->link  != NULL) 
 					buyer_root = buyer(buyer_root,seller_root,seller_root->link);
 				else 
 					printf("seller and product are not listed\n");
 				break ;
-			case 3: 
+			case SELLER: 
 				seller_root = seller(seller_root , product_root);
 				printf("seller  %p\n",seller_root->link);
 				break ;
-			case 4:
+			case EXIT:
 				exit(0); 
 				break ;
 		}
