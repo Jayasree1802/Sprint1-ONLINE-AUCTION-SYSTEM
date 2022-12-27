@@ -63,7 +63,7 @@ void display(seller_Details *seller_root)
 **  FUNCTION NAME   : login
 **  DESCRIPTION     : It is the function to login for seller
 **  PARAMETERS      : Structure seller_Details variable seller_root
-**  RETURN          :  NULL
+**  RETURN          :  struct seller_Details
 *******************************************************************************************/
 seller_Details * login(seller_Details *seller_root )
 {
@@ -124,7 +124,7 @@ FILE *fptr = NULL;
 **  FUNCTION NAME   : get_prodouct_seller_id
 **  DESCRIPTION     : In this function it stores the data of the buyer in a file
 **  PARAMETERS      : Structure buyer_Details variable Source
-**  RETURN          :  NULL 
+**  RETURN          :  struct product_details
 *******************************************************************************************/
 product_details *get_prodouct_seller_id(product_details *p , int seller_id)
 {
@@ -326,7 +326,7 @@ source = source_1 ;
 **  FUNCTION NAME   : login_seller
 **  DESCRIPTION     : It is the function seller login into the application
 **  PARAMETERS      : Structure seller_Details variable seller_root, user name and password 
-**  RETURN          : NULL
+**  RETURN          : struct seller_Details  
 *******************************************************************************************/
 seller_Details *login_seller(seller_Details *seller_root,char *user_name , char *pswd)
 {
@@ -367,7 +367,7 @@ seller_Details *login_seller(seller_Details *seller_root,char *user_name , char 
 **  FUNCTION NAME   : check_the_buyer_request
 **  DESCRIPTION     : In this function it checks the request of a buyer who wants to buy his products
 **  PARAMETERS      : Structure seller_Details variable seller
-**  RETURN          :  Return source 
+**  RETURN          : no return 
 *******************************************************************************************/
 void check_the_buyer_request(seller_Details *seller)
 {
