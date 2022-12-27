@@ -77,7 +77,7 @@ void auction_for_product(product_details *prod_root , seller_Details *seller_roo
                                 if(check_flag == 0)
                                 {
 
-fprintf(fptr,"%d,%d,%d,%d,%d,",buyer_root->id ,prod_root->product_id,seller_root->id,prod_root->product_price ,product_amount);
+                                       fprintf(fptr,"%d,%d,%d,%d,%d,",buyer_root->id ,prod_root->product_id,seller_root->id,prod_root->product_price ,product_amount);
                                         check_flag = 1 ;
                                 }
                                 else
@@ -116,7 +116,7 @@ seller_Details * price_check(product_details *p , seller_Details *q)
                 {
                         if(p->seller_id == q->id)
                         {
-printf("test product seller :%d  and searching seller id %d\n",p->seller_id ,q->id );
+                                printf("test product seller :%d  and searching seller id %d\n",p->seller_id ,q->id );
                                 find_best[index++] =  q;
                                 count++;
                         }
