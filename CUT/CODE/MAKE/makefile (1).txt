@@ -1,0 +1,25 @@
+all: auctionsystem
+
+auctionsystem: main.o admin.o seller.o buyer.o auction.o validations.o
+	gcc main.o admin.o seller.o buyer.o auction.o validations.o -o auctionsystem
+
+main.o: main.c
+	gcc -c header.h main.c
+
+admin.o: admin.c
+	gcc -c header.h admin.c
+
+seller.o: seller.c
+	gcc -c header.h seller.c
+
+buyer.o: buyer.c
+	gcc -c header.h buyer.c
+
+auction.o : auction.c
+	gcc -c header.h auction.c
+
+validations.o: validations.c
+	gcc -c header.h validations.c
+
+clean:
+	rm *.o
