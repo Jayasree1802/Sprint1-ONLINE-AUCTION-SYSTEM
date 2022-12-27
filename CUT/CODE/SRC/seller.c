@@ -6,6 +6,21 @@
 #include<string.h>
 #include"header.h"
 
+//macros of seller menu
+
+#define REGISTERATION 1
+#define LOGIN 2
+#define DISPLAY 3
+#define EXIT 0
+
+// macros of product menu
+
+#define ADD_PRODUCT 1
+#define DELETE_PRODUCT 2
+#define MODIFY_PRODUCT 3
+#define DISPLAY_PRODUCT 4
+#define BIDDING_HISTORY 5
+#define EXIT 0
 
 
 /*******************************************************************************************
@@ -43,11 +58,11 @@ seller_Details *seller(seller_Details *seller_root, product_details *product_roo
 		scanf("%d",&ch);
 		switch(ch)
 		{
-			case 1: 
+			case REGISTERATION: 
 				new_registration_to_file();
 				seller_root = file_to_list(seller_root);
 				break;
-			case 2: 
+			case LOGIN : 
 				seller_id = login(seller_root) ;
 				if(seller_id !=NULL)
 				{
@@ -66,13 +81,13 @@ seller_Details *seller(seller_Details *seller_root, product_details *product_roo
 						scanf("%d",&ch);
 						switch(ch)
 						{
-							case 1:
+							case ADD_PRODUCT:
 								adding_the_product_into_file(seller_id->id);
 								product_root = NULL;
 								product_root = product_registration(product_root) ; 	
 								seller_root->link = product_root;
 								break;
-							case 2:
+							case DELETE_PRODUCT:
 								printf("enter the product id\n");
 								scanf("%d",&p_id);
 								//printf("sending  %p\n",product_root);
@@ -80,19 +95,19 @@ seller_Details *seller(seller_Details *seller_root, product_details *product_roo
 								save_product_info_file(product_root);
 								seller_id->link = product_root ;
 								break;
-							case 3:
+							case MODIFY_PRODUCT:
 								printf("enter the product id\n");
 								scanf("%d",&p_id);
 								product_root = modify_product_details(product_root ,p_id,seller_id);
 								save_product_info_file(product_root);
 								seller_id->link = get_prodouct_seller_id(product_root , seller_id->id);
 								break;
-							case 4: display_product(product_root);
+							case DISPLAY_PRODUCT: display_product(product_root);
 								break ;
-							case 5:
+							case BIDDING_HISTORY:
 								history_display();
 								break;
-							case 6:
+							case EXIT:
 								exit_flag_1 = 1;
 								break;
 								
@@ -103,10 +118,10 @@ seller_Details *seller(seller_Details *seller_root, product_details *product_roo
 					}
 				}	
 				break;
-			case 3: 
+			case DISPLAY: 
 				display(seller_root);
 				break;	
-			case 4: 
+			case EXIT: 
 				exit_flag = 1;
 				break;
 		}
@@ -124,7 +139,7 @@ return seller_root;
 **  PARAMETERS      : No parameters
 **  RETURN          : No Return  
 *******************************************************************************************/
-int new_registration_to_file()
+void new_registration_to_file()
 {
 	seller_Details seller_data ;
 	
@@ -178,7 +193,7 @@ int new_registration_to_file()
 **  FUNCTION NAME   : login_seller
 **  DESCRIPTION     : It is the function seller login into the application
 **  PARAMETERS      : Structure seller_Details variable seller_root, user name and password 
-**  RETURN          : No Return
+**  RETURN          : NULL
 *******************************************************************************************/
 seller_Details *login_seller(seller_Details *seller_root,char *user_name , char *pswd)
 {
@@ -211,7 +226,7 @@ seller_Details *login_seller(seller_Details *seller_root,char *user_name , char 
 **  FUNCTION NAME   : login
 **  DESCRIPTION     : It is the function to login for seller
 **  PARAMETERS      : Structure seller_Details variable seller_root
-**  RETURN          :  No Return 
+**  RETURN          :  NULL
 *******************************************************************************************/
 
 seller_Details * login(seller_Details *seller_root )
