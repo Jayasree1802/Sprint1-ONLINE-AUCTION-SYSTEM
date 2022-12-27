@@ -144,7 +144,13 @@ void admin(seller_Details *seller_root , buyer_Details *buyer_root)
 
         }//end_if
 }
-
+/*******************************************************************************************
+**
+**  FUNCTION NAME   : admin_login
+**  DESCRIPTION     : It is the function for admin login into the application
+**  PARAMETERS      : No parameters
+**  RETURN          : No Return 
+*******************************************************************************************/
 
 int admin_login()
 {
@@ -206,7 +212,12 @@ int admin_login()
 
         }
 }
-
+/*******************************************************************************************
+**  FUNCTION NAME   : read_admin_file
+**  DESCRIPTION     : In this function it  reads the admin data to a file 
+**  PARAMETERS      : Structure admin_data with variable source
+**  RETURN          :  No Return 
+*******************************************************************************************/
 admin_data read_admin_file(admin_data source)
 {
         char *str = "admin_info.txt";
@@ -259,6 +270,12 @@ admin_data read_admin_file(admin_data source)
  return source ;
         
 }
+/*******************************************************************************************
+**  FUNCTION NAME   : add_product_to_list
+**  DESCRIPTION     : In this function admin adds the products to the linkedl list
+**  PARAMETERS      : Structure product_Details with variable source
+**  RETURN          :  Return source
+*******************************************************************************************/
 
 product_details *add_product_to_list(product_details *source)
 {
@@ -302,7 +319,12 @@ product_details *add_product_to_list(product_details *source)
 
         return source ;
 }
-
+/*******************************************************************************************
+**  FUNCTION NAME   : block_seller
+**  DESCRIPTION     : It is the function admin has authority to block the seller
+**  PARAMETERS      : structure seller_Details with variable source
+**  RETURN          :  No Return 
+*******************************************************************************************/
 void block_sller(seller_Details *source)
 {
         seller_Details  *p = source ;
@@ -337,6 +359,12 @@ void block_sller(seller_Details *source)
         if(check_flag == 0)
                 printf("seller-d %d is not listed\n",id);
 }
+/*******************************************************************************************
+**  FUNCTION NAME   : block_buyer
+**  DESCRIPTION     : It is the function admin has authority to block the buyer
+**  PARAMETERS      : structure buyer_Details with variable source
+**  RETURN          :  No Return 
+*******************************************************************************************/
 
 void block_buyer(buyer_Details *source)
 {
