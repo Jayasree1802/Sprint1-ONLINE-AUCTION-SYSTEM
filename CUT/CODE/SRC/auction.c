@@ -235,6 +235,11 @@ void history_display()
 }
 
 
+
+/*This Fuction is for extracting history from file
+*parameter::No parameter returns 
+*return type:: void as it returns nothing
+*/
 bidding_details *biding_histroy_extraction_from_file(bidding_details *Bidding_root)
 {
 
@@ -309,7 +314,7 @@ bidding_details *biding_histroy_extraction_from_file(bidding_details *Bidding_ro
 
 /*This Fuction is for finding the largest bidding price
 *parameter::Bidding data 
-*return type:: int
+*return type:: int large
 */
 int  finding_the_largest_bidding_price(bidding_details Bidding_Data)
 {
@@ -419,7 +424,7 @@ bidding_details *check_for_best_price_by_buyer(bidding_details *source  , biddin
         
  /*This Fuction is for storing tranction into file
 *parameter::No parameter returns 
-*return type:: void as it returns nothing
+*return type:: void 
 */      
 void saving_tranction_into_file(bidding_details *bidding_root )
 {
