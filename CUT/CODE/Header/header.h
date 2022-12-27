@@ -25,13 +25,6 @@ typedef struct seller_Details
         long int phoneNo;
         char panNo[10];
         char password[20];
-        int buyer_id_request[10];
-        int buyer_request_amount[10];
-        char buyer_name[30];
-        int count;
-        int buyer_id_sell ;
-        int status;
-        struct product_details *link;
         struct seller_Details *next;
 }seller_Details;
 
