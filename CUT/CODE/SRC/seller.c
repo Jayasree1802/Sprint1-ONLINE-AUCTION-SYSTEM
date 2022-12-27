@@ -70,16 +70,12 @@ seller_Details * login(seller_Details *seller_root )
         char seller_name[20] , seller_pswd[20] ;
         printf("enter the name \n");
         scanf("%s",seller_name);
-
         printf("enter the password \n");
-//      scanf("%s",seller_pswd);
         strcpy(seller_pswd,getpass("enter password: "));
-
         if((seller_root = login_seller(seller_root ,seller_name,seller_pswd )) != NULL)
         {
                 printf("%s is loged in succsfully\n",seller_name);
                 return seller_root;
-                //check_the_buyer_request(seller_id);
         }
         else
         {
@@ -128,7 +124,6 @@ FILE *fptr = NULL;
 *******************************************************************************************/
 product_details *get_prodouct_seller_id(product_details *p , int seller_id)
 {
-
                 if(p==NULL)
                 {
                         printf("product list is empty\n");
@@ -136,18 +131,13 @@ product_details *get_prodouct_seller_id(product_details *p , int seller_id)
                 }
 
                 char ch ;
-
                 while(p!=NULL)
                 {
                         printf("seller id is %d constant %d \n",p->seller_id , seller_id);
                         if(p->seller_id == seller_id)
                         {
-                                //printf("seller id is %d\n",p->seller_id);
-
-                                //printf("address %p\n",p);
                               return p;
                         }
-
                         p = p->next;
                         getchar();
                 }
@@ -166,22 +156,18 @@ product_details *get_prodouct_seller_id(product_details *p , int seller_id)
 seller_Details *seller(seller_Details *seller_root, product_details *product_root)
 {
         system("clear");
-
         int ch  , seller_exit_flag = 0 , exit_flag = 0 , p_id = 0 , exit_flag_1 = 0;
-
         seller_Details *seller_id = NULL;
         design() ;
         printf("WELCOME TO SELLER\n");
         design() ;
-       if(seller_root==NULL)
-          seller_root = file_to_list(seller_root);
+        if(seller_root==NULL)
+            seller_root = file_to_list(seller_root);
         if(seller_root != NULL)
         {
                 product_root = product_registration(product_root) ;
                 seller_root->link = product_root;
-
         }
-
         while(1)
         {
                 design() ;
@@ -224,7 +210,6 @@ seller_Details *seller(seller_Details *seller_root, product_details *product_roo
                                                         case DELETE_PRODUCTS:
                                                                 printf("enter the product id\n");
                                                                 scanf("%d",&p_id);
-                                                                //printf("sending  %p\n",product_root);
                                                                 product_root = delete_product(product_root ,p_id );
                                                                 save_product_info_file(product_root);
                                                                 seller_id->link = product_root ;
@@ -244,8 +229,7 @@ seller_Details *seller(seller_Details *seller_root, product_details *product_roo
                                                         case 6:
                                                                 exit_flag_1 = 1;
                                                                 break;
-
-                                                }
+                                                  }
 
                                                 if(exit_flag_1 == 1)
                                                         break;
@@ -277,10 +261,8 @@ return seller_root;
 seller_Details *create_lisr_of_seller(seller_Details *source_1 , seller_Details DATA)
 {
 
-        //printf("crete fun source address :%p\n",source_1);
-
         static seller_Details *source;
-source = source_1 ;
+        source = source_1 ;
         if(source == NULL)
         {
                 source = (seller_Details *) calloc(1,sizeof(seller_Details));
@@ -297,27 +279,22 @@ source = source_1 ;
         {
                 seller_Details *p = source ;
                 seller_Details *temp = (seller_Details *) calloc(1,sizeof(seller_Details));
-
                    strcpy(temp->name , DATA.name);
                    temp->id = DATA.id;
                    temp->phoneNo = DATA.phoneNo;
                    strcpy(temp->emailId , DATA.emailId);
                    strcpy(temp->panNo , DATA.panNo);
                    strcpy(temp->password , DATA.password);
-
                 while(p->next != NULL)
                  {
                         p = p->next ;
 
                  }
-
                 p->next = temp ;
                 temp->next = NULL ;
-
         }
 
         return source ;
-
 }
 
 
@@ -331,13 +308,9 @@ source = source_1 ;
 seller_Details *login_seller(seller_Details *seller_root,char *user_name , char *pswd)
 {
         seller_Details *p = seller_root ;
-
-
-
         int flag = 0 ;
         while(p != NULL)
         {
-
                 if(strcmp(p->name ,user_name) == 0 )
                 {
                         if(strcmp(p->password , pswd )== 0)
@@ -347,16 +320,13 @@ seller_Details *login_seller(seller_Details *seller_root,char *user_name , char 
                                 {
                                         printf("%s and %d is blokced\n",user_name ,p->id);
                                         return NULL;
-
                                 }
                                 return p ;
                         }
-
                 }
 
                 p = p->next ;
         }
-
         if(flag == 0)
          return NULL ;
 }
@@ -371,19 +341,15 @@ seller_Details *login_seller(seller_Details *seller_root,char *user_name , char 
 *******************************************************************************************/
 void check_the_buyer_request(seller_Details *seller)
 {
-
         FILE *fptr = NULL;
         char *seller_file = "selling_info.txt";
-
         printf("checking\n");
         if(seller==NULL)
         {
                 printf("list is empty\n");
                 return ;
         }
-
         seller_Details *p = seller ;
-
         for(int i = 0 ; i< p->count ; i++)
         {
                 printf("product id :%d product name %s asking price %d and buyer id %d\n",p->product_id , p->product_name , p->buyer_request_amount[i],p->buyer_id_request[i]);
@@ -392,7 +358,6 @@ void check_the_buyer_request(seller_Details *seller)
         scanf("%d",&p->buyer_id_sell);
         p->product_status = 2;
         printf("%s is sold to buyer -id %d\n",p->name ,p->buyer_id_sell );
-
         fptr = fopen(seller_file,"a");
         if(fptr ==NULL)
         {
@@ -409,9 +374,7 @@ void check_the_buyer_request(seller_Details *seller)
                         }
                  }
         }
-
         fclose(fptr);
-
 }
 
 
@@ -425,7 +388,6 @@ void check_the_buyer_request(seller_Details *seller)
 int new_registration_to_file()
 {
         seller_Details seller_data ;
-
         FILE *fptr = NULL;
         char *seller_file = "seller_info.txt";
         fptr =fopen(seller_file ,"a");
@@ -436,14 +398,11 @@ int new_registration_to_file()
         }
         else
         {
-
-
                 printf("enter the name\n");
                 getchar();
                 fgets(seller_data.name , 30 , stdin);
                 seller_data.name[strlen(seller_data.name)-1] = '\0';
                 printf("enter the seller-id\n");
-
                 scanf("%d",&seller_data.id);
 
                 printf("enter the email-id\n");
@@ -454,10 +413,8 @@ int new_registration_to_file()
                 printf("enter the password\n");
                 getchar();
                 scanf("%s",seller_data.password);
-seller_data.password[strlen(seller_data.password)] = '\0';
-
-//              printf("password is %s\n",seller_data.password);
-
+               seller_data.password[strlen(seller_data.password)] = '\0';
+                
                 printf("enter the phone number\n");
                 scanf("%ld",&seller_data.phoneNo);
 
@@ -465,13 +422,9 @@ seller_data.password[strlen(seller_data.password)] = '\0';
                 getchar();
                 fgets(seller_data.panNo , 10 , stdin);
                 seller_data.panNo[strlen(seller_data.panNo)-1] = '\0';
-
-
                 fprintf(fptr,"%s,%d,%ld,%s,%s,%s\n",seller_data.name,seller_data.id ,seller_data.phoneNo ,seller_data.emailId ,seller_data.panNo,seller_data.password);
         }
-
         fclose(fptr);
-
 }
 
 
@@ -484,43 +437,32 @@ seller_data.password[strlen(seller_data.password)] = '\0';
 *******************************************************************************************/
 seller_Details *file_to_list(seller_Details *seller_root_1)
 {
-
         seller_Details q_data ;
-
         char *seller_file = "seller_info.txt";
         FILE *fptr ;
         char buffer[BUFFER_SIZE];
         seller_Details *seller_root = NULL;
-
         fptr =fopen(seller_file ,"r");
         if(fptr == NULL)
         {
                 printf("%s file is not found\n",seller_file);
-
         }
         else
         {
                 while(!feof(fptr))
                 {
-     
-                        if(!(fgets(buffer,BUFFER_SIZE,fptr)))
+                       if(!(fgets(buffer,BUFFER_SIZE,fptr)))
                         {
-                                //printf("string reading is fail\n");
                                 break ;
                         }
                         else
                         {
                                         q_data = seller_extraction_from_file(buffer , q_data);
                                         seller_root = create_lisr_of_seller(seller_root ,q_data );
-
-                                        //printf("return add %p\n",seller_root);
-
                         }
                 }
         }
-
         fclose(fptr);
-
         return seller_root;
 }
 
@@ -534,15 +476,11 @@ seller_Details *file_to_list(seller_Details *seller_root_1)
 *******************************************************************************************/
 seller_Details seller_extraction_from_file(char *str , seller_Details q_data)
 {
-        //printf("str recv: %s\n",str);
-
         char *piece = NULL;
-
         int index = 0;
                 piece = strtok(str,",");
                 while(piece !=NULL)
                 {
-
                         if(index == 0)
                         {
                            strcpy(q_data.name , piece);
@@ -591,13 +529,10 @@ seller_Details seller_extraction_from_file(char *str , seller_Details q_data)
 *******************************************************************************************/
 product_details *product_registration(product_details *root)
 {
-
         char *str  = "product_info.txt";
-
         char buffer[BUFFER_SIZE];
         FILE *fptr = NULL;
-product_details p_data ;
-
+        product_details p_data ;
         int seller_num =0 ;
         fptr = fopen(str,"r");
         if(fptr == NULL)
@@ -608,25 +543,17 @@ product_details p_data ;
         else
         {
                 printf("file open is scuccess\n");
-
                 while(!feof(fptr))
                 {
-
                         if(!(fgets(buffer,BUFFER_SIZE,fptr)))
-                        {
-                                //printf("file is empty\n");
+                        {                            
                                 break ;
                         }
                         else
                         {
-
                                         p_data = data_extraction_from_buffer(buffer ,p_data ,&seller_num);
-
-                                        p_data.seller_id =  seller_num ;
-                                        //printf("point :sller-id %d prod: %d\n",p_data.seller_id ,p_data.product_id );
-                                        //getchar();
+                                        p_data.seller_id =  seller_num ;                                      
                                         root = create_list_for_product(root , p_data);
-
                         }
                 }
         }
@@ -644,11 +571,9 @@ return root;
 product_details data_extraction_from_buffer(char *str, product_details DATA , int *seller_id)
 {
 int index = 0 , i =0 , j =0 ,l = 0, date_index = 0 , num = 0 ;
-
         char *piece = NULL;
         char *piece_date = NULL;
         char temp[10] ;
-
                 piece = strtok(str,",");
                 while(piece !=NULL)
                 {
@@ -705,8 +630,6 @@ int index = 0 , i =0 , j =0 ,l = 0, date_index = 0 , num = 0 ;
 *******************************************************************************************/
 product_details *create_list_for_product(product_details *source , product_details p_data)
 {
-
-
         if(source == NULL)
         {
                 source = (product_details *) malloc(sizeof(product_details));
@@ -719,9 +642,8 @@ product_details *create_list_for_product(product_details *source , product_detai
                   for(int i = 0 ; i <3 ; i++)
                   {
                          source->end_date[i] = p_data.end_date[i] ;
-}
+                   }
                 source->next = NULL;
-
         }
         else
         {
@@ -735,19 +657,14 @@ product_details *create_list_for_product(product_details *source , product_detai
                   temp->product_price = p_data.product_price ;
                   for(int i = 0 ; i <3 ; i++)
                   temp->end_date[i] = p_data.end_date[i] ;
-
                 while(p->next != NULL)
                  {
                         p = p->next ;
-
                  }
-
                 p->next = temp ;
                 temp->next = NULL ;
-
         }
         return source;
-
 }
 
 
@@ -760,19 +677,15 @@ product_details *create_list_for_product(product_details *source , product_detai
 *******************************************************************************************/
 int *lookup(product_details *source, int prod_id , int *index )
 {
-
-
-         int count = 1 , check_flag = 0;
-if(source ==  NULL)
+        int count = 1 , check_flag = 0;
+        if(source ==  NULL)
          {
                 printf("list is empty\n") ;
                 return NULL ;
           }
 
         product_details *p = source ;
-
         int i = 0 , j =0;
-
         while(p!=NULL)
         {
                 if(p->product_id  == prod_id)
@@ -784,7 +697,6 @@ if(source ==  NULL)
                 else
                 {
                         count++ ;
-
                 }
                 p = p->next ;
         }
@@ -795,7 +707,6 @@ if(source ==  NULL)
         }
         else
                 *index = -1;
-
         return index ;
 }
 
@@ -810,24 +721,18 @@ if(source ==  NULL)
 int* len_of_list(product_details  *source ,int *index)
 {
         int count =0 ;
-
         if(source ==  NULL)
         {
                 printf("list is empty\n") ;
                 return NULL ;
         }
-
-
         product_details   *p = source ;
-
         while(p!=NULL)
         {
                 count ++;
                 p = p->next ;
         }
-
         *index = count ;
-
         return index ;
 }
 
@@ -849,18 +754,12 @@ product_details *delete_product(product_details *source ,int p_id)
                 printf("list is empty\n") ;
                 return NULL ;
          }
-
-
         product_details *p = source ;
-product_details *temp = source  ;
-
+        product_details *temp = source  ;
         position = *lookup(p,p_id,&position) ;
         len = *len_of_list(p,&len);
-
-
         printf("please enter y to delete \n");
         scanf(" %c",&ch);
-
         if((ch == 'y' || ch == 'Y')&&position >0)
         {
                 if(position == 1)
@@ -870,40 +769,30 @@ product_details *temp = source  ;
                 }
                 else if(position < len)
                 {
-
                         while(link < position-1)
                         {
                                 temp = temp->next;
                                 link++ ;
-
                         }
-
                         product_details* del = temp->next;
                         del->next = del->next ;
                         temp->next = del->next ;
-
                 }
                 else if(position == len)
                 {
                         link = 1 ;
-
-
                         while(link < position-1)
                         {
                                 temp = temp->next;
-link++;
+                                link++;
                         }
-
                         temp->next = NULL;
-
-
                 }
         }
         else
         printf("product -id is  not deleted\n");
 
 return source;
-
 }
 
 
