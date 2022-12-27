@@ -53,7 +53,7 @@ void admin(seller_Details *seller_root , buyer_Details *buyer_root)
                                                                         printf(" seller list is empty\n");
                                                                 break;
                                                 }//end_switch
-                                        }
+                                        }//end_else
 
                                         break;
 
@@ -81,15 +81,17 @@ void admin(seller_Details *seller_root , buyer_Details *buyer_root)
 
                                                                 break;
                                                 }
-                                        }//manage_buyer
+                                        }
 
                                         break ;
 
                                 case MANAGE_PRODUCTS:
+                                        
                                         if(seller_root->link == NULL)
                                         {
                                                 printf("Products are not listed\n");
                                         }
+                                        
                                         else
                                         {
                                                 printf("1) Add product \n");
@@ -114,7 +116,9 @@ void admin(seller_Details *seller_root , buyer_Details *buyer_root)
                                                                 else
                                                                         printf("product list is empty\n");
                                                                 break;
+                                                                
                                                         case MODIFY_PRODUCT:
+                                                                
                                                                 if(seller_root->link != NULL)
                                                                 {
                                                                         printf("enter the product id\n");
@@ -132,13 +136,13 @@ void admin(seller_Details *seller_root , buyer_Details *buyer_root)
                                       case EXIT:
                                       exit_flag = 1;
                         }//end_switch
+                        
                     if(exit_flag == 1)
                         break;
+                        
                 }//end_while
 
-
         }//end_if
-
 }
 
 
@@ -163,7 +167,7 @@ int admin_login()
                         if(alpha_validator(user) == 1)
                                 break;
                         else
-                                printf("please enter only characters\n");
+                               printf("please enter only characters\n");
                 }
 
                 LOOP:
@@ -179,7 +183,6 @@ int admin_login()
                                 printf("please enter correct format\n");
                                 goto LOOP;
                         }
-
 
                 if(strcmp(admin_root.user_name ,user ) == 0)
                 {
@@ -227,13 +230,12 @@ admin_data read_admin_file(admin_data source)
                                 //printf("string reading is fail\n");
                                 break ;
                         }
+                        
                         else
                         {
                                 piece = strtok(buffer,",");
                                 while(piece !=NULL)
-                                {
-
-                                        
+                                {    
                                         if(index == 1)
                                         {
                                                 strcpy(source.user_name ,piece );
@@ -255,6 +257,7 @@ admin_data read_admin_file(admin_data source)
         }
 
  return source ;
+        
 }
 
 product_details *add_product_to_list(product_details *source)
@@ -273,14 +276,12 @@ product_details *add_product_to_list(product_details *source)
 
                 printf("enter the product name\n");
                 getchar();
+        
                 fgets(data.product_name , 30 , stdin);
                 data.product_name[strlen(data.product_name)-1] = '\0';
-
-
-
                 printf("enter the product-id \n");
                 scanf("%d",&data.product_id);
-
+        
                 printf("enter the product details\n");
                 getchar();
                 fgets(data.product_details , 30 , stdin);
@@ -294,7 +295,6 @@ product_details *add_product_to_list(product_details *source)
                 printf("enter the seller -id\n");
                 scanf("%d",&data.seller_id);
 
-
                 fprintf(fptr,"%d,%d,%s,%s,%d,%d-%d-%d\n",data.seller_id,data.product_id ,data.product_name,data.product_details,data.product_price,data.end_date[0],data.end_date[1],data.end_date[2]);
 
                 fclose(fptr);
@@ -306,7 +306,6 @@ product_details *add_product_to_list(product_details *source)
 void block_sller(seller_Details *source)
 {
         seller_Details  *p = source ;
-
         char ch ;
         int id , check_flag = 0;
         printf("enter the sller id\n");
@@ -330,7 +329,7 @@ void block_sller(seller_Details *source)
 
                         check_flag = 1;
 
-                }
+                 }
 
                 p = p->next ;
         }
@@ -338,6 +337,7 @@ void block_sller(seller_Details *source)
         if(check_flag == 0)
                 printf("seller-d %d is not listed\n",id);
 }
+
 void block_buyer(buyer_Details *source)
 {
         buyer_Details   *p = source ;
