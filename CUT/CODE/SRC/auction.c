@@ -99,7 +99,7 @@ void auction_for_product(product_details *prod_root , seller_Details *seller_roo
                         }
                         else
                         {
-                                printf("Prdoucr Base Price is %d \n",prod_root->product_price);
+                                printf("Prdouct Base Price is %d \n",prod_root->product_price);
                                 printf("Please enter amount greater than the base price\n");
                         }
 
