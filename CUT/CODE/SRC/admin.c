@@ -5,13 +5,14 @@
 #include"header.h"
 #include<stdlib.h>
 
+
+
 /*********************************************************************************
  * FUNCTION_NAME        :      admin
  * DESCRIPTION          :      This function is used to print the main menu and to choose the menu from the entered choice .
  * Parameters           :      seller_details structure seller_rote and structure buyer_details buyer_root
  * return type          :      void return type
  *******************************************************************************/
-
 void admin(seller_Details *seller_root , buyer_Details *buyer_root)
 {
         int ch , exit_flag = 0 , p_id = 0 , seller_id = 0 , exit_flag_1 = 0;
@@ -144,6 +145,9 @@ void admin(seller_Details *seller_root , buyer_Details *buyer_root)
 
         }//end_if
 }
+
+
+
 /*******************************************************************************************
 **
 **  FUNCTION NAME   : admin_login
@@ -151,7 +155,6 @@ void admin(seller_Details *seller_root , buyer_Details *buyer_root)
 **  PARAMETERS      : No parameters
 **  RETURN          : No Return 
 *******************************************************************************************/
-
 int admin_login()
 {
 
@@ -212,6 +215,9 @@ int admin_login()
 
         }
 }
+
+
+
 /*******************************************************************************************
 **  FUNCTION NAME   : read_admin_file
 **  DESCRIPTION     : In this function it  reads the admin data to a file 
@@ -270,13 +276,15 @@ admin_data read_admin_file(admin_data source)
  return source ;
         
 }
+
+
+
 /*******************************************************************************************
 **  FUNCTION NAME   : add_product_to_list
 **  DESCRIPTION     : In this function admin adds the products to the linkedl list
 **  PARAMETERS      : Structure product_Details with variable source
 **  RETURN          :  Return source
 *******************************************************************************************/
-
 product_details *add_product_to_list(product_details *source)
 {
 
@@ -319,6 +327,9 @@ product_details *add_product_to_list(product_details *source)
 
         return source ;
 }
+
+
+
 /*******************************************************************************************
 **  FUNCTION NAME   : block_seller
 **  DESCRIPTION     : It is the function admin has authority to block the seller
@@ -359,13 +370,15 @@ void block_sller(seller_Details *source)
         if(check_flag == 0)
                 printf("seller-d %d is not listed\n",id);
 }
+
+
+
 /*******************************************************************************************
 **  FUNCTION NAME   : block_buyer
 **  DESCRIPTION     : It is the function admin has authority to block the buyer
 **  PARAMETERS      : structure buyer_Details with variable source
 **  RETURN          :  No Return 
 *******************************************************************************************/
-
 void block_buyer(buyer_Details *source)
 {
         buyer_Details   *p = source ;
