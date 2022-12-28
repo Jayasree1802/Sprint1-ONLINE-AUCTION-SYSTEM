@@ -1,5 +1,6 @@
 #include<stdio.h>
 #define BUFFER_SIZE 1000
+
 //macros for admin menu
 #define MANAGE_SELLER 1
 #define MANAGE_BUYER 2
@@ -13,6 +14,7 @@
 #define MODIFY_PRODUCT 3
 #define EXIT 0
 
+//structure of seller
 typedef struct seller_Details
 {
         int id;
@@ -40,6 +42,7 @@ struct product_details *link;
         struct seller_Details *next;
 }seller_Details;
 
+//structure of products
 typedef struct product_details
 {
         int product_id ;
@@ -52,6 +55,7 @@ typedef struct product_details
         struct product_details *next;
 }product_details;
 
+//structure of buyer
 typedef struct buyer_Details
 {
         int id;
@@ -69,7 +73,7 @@ typedef struct buyer_Details
 
 }buyer_Details;
 
-
+//structure of admin
 typedef struct admin_data
 {
 
@@ -80,6 +84,7 @@ char pswd[BUFFER_SIZE];
         struct admin_data *next ;
 }admin_data;
 
+//struct of bidding
 typedef struct bidding_details
 {
         int bidding_data[16];
@@ -87,24 +92,17 @@ typedef struct bidding_details
         struct bidding_details *next ;
 }bidding_details;
 
-
-
 //functions of buyer
 
 buyer_Details *buyer(buyer_Details * , seller_Details *,product_details *);
 buyer_Details *registration_buyer(buyer_Details *);
 buyer_Details *buyer_login(buyer_Details *,char * , char *);
-
 void writing_buyer_info_to_file();
-
 buyer_Details data_extraction_from_buyer_file(char * ,buyer_Details);
 buyer_Details *create_list_buyer(buyer_Details * , buyer_Details);
 void display(seller_Details *);
-
 void auction_for_product(product_details * , seller_Details * , buyer_Details *);
-
 product_details *get_the_product_detail(product_details * ,int);
-
 void display_buyer(buyer_Details *);
 
 //functions of admin menu
@@ -113,8 +111,6 @@ void admin(seller_Details *, buyer_Details *);
 int admin_login();
 admin_data read_admin_file(admin_data );
 product_details *add_product_to_list(product_details *);
-
-
 void block_sller(seller_Details *);
 void list_sller();
 void block_buyer(buyer_Details *);
