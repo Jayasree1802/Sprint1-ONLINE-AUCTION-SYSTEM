@@ -1,8 +1,21 @@
+//definition file for validation
+//header files
 
 #include<stdio.h>
 #include<string.h>
 #include<stdlib.h>
 #include <ctype.h>
+
+//Macros 
+#define MAX 10
+#define MIN 5
+
+/*******************************************************************************************
+**  FUNCTION NAME   : intiger_validation
+**  DESCRIPTION     : It is the function for validating the string or username
+**  PARAMETERS      : character string is the parameter
+**  RETURN          : No Return 
+*******************************************************************************************/
 
 int intiger_validation(char *str)
 {
@@ -33,6 +46,12 @@ int intiger_validation(char *str)
 		  	return 1;	
         }
 }
+/*******************************************************************************************
+**  FUNCTION NAME   : alpha_validator
+**  DESCRIPTION     : It is the function for validating the alphabets
+**  PARAMETERS      : parameter of character type of string
+**  RETURN          :  No Return 
+*******************************************************************************************/
 
 int alpha_validator(char *s)
 {
@@ -52,7 +71,12 @@ int alpha_validator(char *s)
         return 1;
 }
 
-
+/*******************************************************************************************
+**  FUNCTION NAME   : phone_validation
+**  DESCRIPTION     : It is the function to validate the phone_number of buyer and seller
+**  PARAMETERS      : parameter of character pointer
+**  RETURN          :  No Return 
+*******************************************************************************************/
 int phone_validation(char *str)
 {
 	
@@ -87,7 +111,12 @@ int phone_validation(char *str)
         }	
 }
 
-
+/*******************************************************************************************
+**  FUNCTION NAME   : password_validation
+**  DESCRIPTION     : It is the function to validate the password
+**  PARAMETERS      : character string is parameter
+**  RETURN          :  No Return 
+*******************************************************************************************/
 int password_validation(char *str)
 {
 	char *ptr = str ;
@@ -124,5 +153,3 @@ int password_validation(char *str)
 	else 
 	return 0;
 }
-
-
