@@ -1,0 +1,42 @@
+INC = /home/system/QuizGame/inc
+SRC = /home/system/QuizGame/src
+OBJ = /home/system/QuizGame/obj
+
+CFLAGS = -c -g -Wall
+LFLAGS = -o
+GCC = gcc
+CVFLAGS = -Wall -c -g
+IFLAGS = -I $(INC)
+
+all : $(BIN)/client 
+
+$(OBJ)/client.o : $(SRC)/main.c
+	$(GCC) $(CFLAGS) $(SRC)/main.c $(IFLAGS)
+	mv *.o/home/system/Auctionsystem/obj
+
+$(OBJ)/mainmenu.o : $(SRC)/menu.c
+	$(GCC) $(CFLAGS) $(SRC)/main.c $(IFLAGS)
+	mv *.o/home/system/Auctionsystem/obj
+
+$(OBJ)/admin.o : $(SRC)/admin.c
+	$(GCC) $(CFLAGS) $(SRC)/admin.c $(IFLAGS)
+	mv *.o/home/system/Auctionsystem/obj
+
+$(OBJ)/coodinator.o : $(SRC)/buyer.c
+	$(GCC) $(CFLAGS) $(SRC)/buyer.c ($IFLAGS)
+	mv *.o/home/system/Auctionsystem/obj
+
+$(OBJ)/contestant.o : $(SRC)/seller.c
+	$(GCC) $(CFLAGS) $(SRC)/seller.c $(IFLAGS)
+	mv *.o/home/system/Auctionsystem/obj
+
+$(OBJ)/validations.o : $(SRC)/validations.c
+	$(GCC) $(CFLAGS) $(SRC)/validations.c $(IFLAGS)
+	mv *.o/home/system/Auctionsystem/obj
+
+
+$(BIN)/client : $(OBJ)/client.o $(OBJ)/mainmenu.o $(OBJ)/admin.o $(OBJ)/buyer.o $(OBJ)/seller.o $(OBJ)/validations.o
+	$(GCC) $(OBJ)/client.o $(OBJ)/mainmenu.o $(OBJ)/admin.o $(OBJ)/buyer.o $(OBJ)/seller.o $(OBJ)/validations.o $(LFLAGS) $(BIN)/client
+
+clean:
+	rm -f $(OBJ)/*.o $(BIN)/client
