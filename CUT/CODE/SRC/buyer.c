@@ -453,11 +453,6 @@ seller_Details *get_the_seller_dwtails_for_product(product_details *p ,int produ
 }
 
 
-                p->next = temp ;
-                temp->next = NULL ;
-        }
-
-return source;
-}
+        
 
 
