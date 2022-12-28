@@ -53,15 +53,6 @@ int alpha_validator(char *s)
 }
 
 
-
-int gender_validator(char ch)
-{
-	if(ch == 'm' || ch == 'f' || ch == 'M' || ch == 'F' )
-		return 1;
-	else 
-		return 0;
-}
-
 int phone_validation(char *str)
 {
 	
