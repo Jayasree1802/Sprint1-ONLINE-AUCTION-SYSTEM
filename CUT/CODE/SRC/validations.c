@@ -88,16 +88,6 @@ int phone_validation(char *str)
 }
 
 
-int point_validation(char str)
-{
-	
-	if(str =='A' ||str =='B'||str == 'C' ||str == 'D'||str=='D' ||str== 'E')
-		return 1;
-	else 
-	 return 0;
-	
-}
-
 int password_validation(char *str)
 {
 	char *ptr = str ;
