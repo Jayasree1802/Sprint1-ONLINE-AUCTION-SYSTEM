@@ -1,5 +1,8 @@
+//buyer header file
+
 #include<stdio.h>
 
+//structure for buyer
 typedef struct buyer_Details
 {
         int id;
@@ -18,6 +21,7 @@ typedef struct buyer_Details
 }buyer_Details;
 
 
+//functions for buyer
 
 buyer_Details *buyer(buyer_Details * , seller_Details *,product_details *);
 buyer_Details *registration_buyer(buyer_Details *);
