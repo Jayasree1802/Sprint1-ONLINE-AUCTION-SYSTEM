@@ -1,10 +1,19 @@
+//definition file for buyer
+
+//header files
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
 #include<unistd.h>
 #include"header.h"
 
-
+/*******************************************************************************************
+**
+**  FUNCTION NAME   : save_to_file
+**  DESCRIPTION     : In this function it stores the data of the buyer in a file
+**  RETURN          :  No Return 
+**  PARAMETERS      : Structure buyer_Details variable Source
+*******************************************************************************************/
 void save_to_file(buyer_Details *source)
 {
         FILE *fptr = NULL ;
@@ -29,6 +38,14 @@ void save_to_file(buyer_Details *source)
 
         fclose(fptr);
 }
+
+*******************************************************************************************
+**
+**  FUNCTION NAME   : display_buyer
+**  DESCRIPTION     : In this function the buyer details are displayed
+**  RETURN          :  No Return 
+**  PARAMETERS      : Structure buyer_Details variable Source
+*******************************************************************************************/
 void display_buyer(buyer_Details *source)
 {
         buyer_Details *p = source  ;
@@ -55,7 +72,13 @@ void display_buyer(buyer_Details *source)
         }
 }
 
-
+/*******************************************************************************************
+**
+**  FUNCTION NAME   : display_productlis
+**  DESCRIPTION     : In this function the products that are displayed to buyer to buy
+**  RETURN          :  No Return 
+**  PARAMETERS      : Structure product_Details with structure variable Seller_root
+*******************************************************************************************/
 void display_productlis(product_details *seller_root)
 {
         product_details *p = seller_root ;
@@ -70,7 +93,13 @@ void display_productlis(product_details *seller_root)
 
 }
 
-
+/*******************************************************************************************
+**
+**  FUNCTION NAME   : buyer
+**  DESCRIPTION     : In this function it is the menu for the buyer module
+**  RETURN          :  Return source
+**  PARAMETERS      : Structure buyer_Details variable Source,Structure seller_Details with variable seller_root, structure product_details with variable product root 
+*******************************************************************************************/
 buyer_Details *buyer(buyer_Details *source , seller_Details *seller_root , product_details *product_root)
 {
 
@@ -191,6 +220,13 @@ buyer_Details *buyer(buyer_Details *source , seller_Details *seller_root , produ
 return source ;
 }
 
+/*******************************************************************************************
+**
+**  FUNCTION NAME   : registration_buyer
+**  DESCRIPTION     : It is the function for the registration of buyer  
+**  RETURN          :  Return source
+**  PARAMETERS      : Structure buyer_Details variable Source
+********************************************************************
 buyer_Details *registration_buyer(buyer_Details *source)
 {
 
@@ -225,7 +261,13 @@ buyer_Details *registration_buyer(buyer_Details *source)
         }
 return source;
 }
-
+/*******************************************************************************************
+**
+**  FUNCTION NAME   : buyer_login
+**  DESCRIPTION     : It is the function for buyer login into the application
+**  RETURN          : No Return 
+**  PARAMETERS      : Structure buyer_Details variable Source, username and password
+*******************************************************************************************/
 buyer_Details *buyer_login(buyer_Details *source,char *user_name , char *pswd)
 {
         buyer_Details *p = source ;
@@ -262,6 +304,13 @@ buyer_Details *buyer_login(buyer_Details *source,char *user_name , char *pswd)
          return NULL ;
 }
 
+/*******************************************************************************************
+**
+**  FUNCTION NAME   : writing_buyer_info_to_file
+**  DESCRIPTION     : In this function it writes the data of the buyer into a file
+**  RETURN          :  No Return 
+**  PARAMETERS      : No parameters
+*******************************************************************************************/
 
 void writing_buyer_info_to_file()
 {
@@ -336,7 +385,13 @@ void writing_buyer_info_to_file()
 
         fclose(fptr);
 }
-
+/*******************************************************************************************
+**
+**  FUNCTION NAME   : data_extraction_from_buyer_file
+**  DESCRIPTION     : In this function it extracts the data of the buyer from  file
+**  RETURN          :  Return DATA 
+**  PARAMETERS      : char string for the buffer and Structure buyer_Details with variable DATA
+*******************************************************************************************/
 buyer_Details data_extraction_from_buyer_file(char *str ,buyer_Details DATA)
 {
 
@@ -386,7 +441,13 @@ buyer_Details data_extraction_from_buyer_file(char *str ,buyer_Details DATA)
         return DATA;
 }
 
-
+/*******************************************************************************************
+**
+**  FUNCTION NAME   : create_list_buyer
+**  DESCRIPTION     : In this function it creates a linked list to the buyer
+**  RETURN          : Return source 
+**  PARAMETERS      : Structure buyer_Details with variable source and DATA
+*******************************************************************************************/
 buyer_Details *create_list_buyer(buyer_Details *source , buyer_Details DATA)
 {
         if(source == NULL)
@@ -425,7 +486,13 @@ buyer_Details *create_list_buyer(buyer_Details *source , buyer_Details DATA)
 return source;
 }
 
-
+/*******************************************************************************************
+**
+**  FUNCTION NAME   : get_the_product_detail
+**  DESCRIPTION     : In this function it display the data of the products to the buyer
+**  RETURN          :  No Return 
+**  PARAMETERS      : Structure product_details variable p and prod_id
+*******************************************************************************************/
 product_details *get_the_product_detail(product_details * p ,int prod_id)
 {
 
@@ -449,7 +516,13 @@ product_details *get_the_product_detail(product_details * p ,int prod_id)
                 }
                 return NULL;
 }
-
+/*******************************************************************************************
+**
+**  FUNCTION NAME   : get_the_seller_detail
+**  DESCRIPTION     : In this function it get the data of the seller for a particular product
+**  RETURN          :  No Return 
+**  PARAMETERS      : Structure product_details and prod_id,seller_details 
+*******************************************************************************************/
 seller_Details *get_the_seller_dwtails_for_product(product_details *p ,int product_id , seller_Details *q)
 {
 
@@ -488,14 +561,4 @@ seller_Details *get_the_seller_dwtails_for_product(product_details *p ,int produ
                 }
 
 }
-
-
-
-
-
-
-
-
-
-
 
