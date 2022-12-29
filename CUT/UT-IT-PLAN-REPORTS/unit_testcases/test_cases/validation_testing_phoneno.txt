@@ -1,0 +1,17 @@
+ CUnit - A unit testing framework for C - Version 2.1-3
+     http://cunit.sourceforge.net/
+
+
+Suite phoneno_test, Test
+
+....testing password...
+
+ had failures:
+    1. validationtesting.c:25  - 0==password_validation("Ramya123")
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites      1      1    n/a      0        0
+               tests      2      2      1      1        0
+             asserts      2      2      1      1      n/a
+
+Elapsed time =    0.000 seconds
