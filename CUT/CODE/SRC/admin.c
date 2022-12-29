@@ -6,13 +6,11 @@
 
 void admin(seller_Details *seller_root , buyer_Details *buyer_root)
 {
-
         system("clear");
         int ch , exit_flag = 0 , p_id = 0 , seller_id = 0 , exit_flag_1 = 0;
         design();
         if(admin_login())
         {
-
                 printf("WelCome To Admin\n");
                 design();
                 while(1)
@@ -21,9 +19,7 @@ void admin(seller_Details *seller_root , buyer_Details *buyer_root)
                         printf("  2) Manage buyer\n");
                         printf("  3) Manage products\n");
                         printf("  4) Back to main menu\n");
-
                         scanf("%d",&ch);
-
                         switch(ch)
                         {
                                 case MANAGE_SELLER:
