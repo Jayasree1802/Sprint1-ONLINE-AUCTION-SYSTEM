@@ -70,6 +70,17 @@ typedef struct bidding_details
 	struct bidding_details *next ;
 }bidding_details;
 
+//functions for admin
+
+void admin(seller_Details *, buyer_Details *);
+int admin_login();
+admin_data read_admin_file(admin_data );
+product_details *add_product_to_list(product_details *);
+void block_sller(seller_Details *);
+void list_sller();
+void block_buyer(buyer_Details *);
+void list_buyer();
+
 //functions for seller
 
 seller_Details *  price_check(product_details * ,seller_Details *);
