@@ -4,6 +4,13 @@
 #include<string.h>
 #include"header.h"
 
+/*******************************************************************************************
+**  FUNCTION NAME   :    display
+**  DESCRIPTION     :    In this function it display the data of the sellers in a file
+**  PARAMETERS      :    Structure seller_Details variable seller_root
+**  RETURN          :     No Return 
+*******************************************************************************************/
+
 void display(seller_Details *seller_root)
 {
         int ch ;
@@ -36,6 +43,13 @@ void display(seller_Details *seller_root)
         }
 }
 
+/*******************************************************************************************
+**  FUNCTION NAME   : login
+**  DESCRIPTION     : It is the function to login for seller
+**  PARAMETERS      : Structure seller_Details variable seller_root
+**  RETURN          :  NULL
+*******************************************************************************************/
+
 seller_Details * login(seller_Details *seller_root )
 {
         char seller_name[20] , seller_pswd[20] ;
@@ -59,6 +73,14 @@ seller_Details * login(seller_Details *seller_root )
                 return NULL;
         }
 }
+            
+/*******************************************************************************************
+**  FUNCTION NAME   : save_product_info_file
+**  DESCRIPTION     : In this function it stores the data of the products information in a file
+**  PARAMETERS      : Structure product_details variable product_root
+**   RETURN         :  No Return 
+*******************************************************************************************/
+            
 void save_product_info_file(product_details *product_root)
 {
         product_details *p = product_root  ;
@@ -81,6 +103,13 @@ void save_product_info_file(product_details *product_root)
 
         fclose(fptr);
 }
+            
+/*******************************************************************************************
+**  FUNCTION NAME   : get_prodouct_seller_id
+**  DESCRIPTION     : In this function it stores the data of the buyer in a file
+**  PARAMETERS      : Structure buyer_Details variable Source
+**  RETURN          :  NULL 
+*******************************************************************************************/
 
 product_details *get_prodouct_seller_id(product_details *p , int seller_id)
 {
@@ -110,6 +139,12 @@ product_details *get_prodouct_seller_id(product_details *p , int seller_id)
                 return NULL;
 }
 
+/*******************************************************************************************
+**  FUNCTION NAME   : seller
+**  DESCRIPTION     : In this function it is the menu for seller
+**  PARAMETERS      : Structure seller_Details variable Seller_root, Structure product_details variable product_root
+**  RETURN          : Return address of seller_root
+*******************************************************************************************/
 
 seller_Details *seller(seller_Details *seller_root, product_details *product_root)
 {
@@ -213,7 +248,13 @@ seller_Details *seller(seller_Details *seller_root, product_details *product_roo
 return seller_root;
 }
 
-
+/*******************************************************************************************
+**  FUNCTION NAME   : create_lisr_of_seller
+**  DESCRIPTION     : In this function it creates the linked list for sellers
+**  PARAMETERS      : Structure seller_Details variable Source_1 and with variable DATA
+**  RETURN          :  Return source 
+*******************************************************************************************/
+            
 seller_Details *create_lisr_of_seller(seller_Details *source_1 , seller_Details DATA)
 {
 
@@ -257,7 +298,13 @@ seller_Details *create_lisr_of_seller(seller_Details *source_1 , seller_Details 
         return source ;
 }
 
-
+/*******************************************************************************************
+**  FUNCTION NAME   : login_seller
+**  DESCRIPTION     : It is the function seller login into the application
+**  PARAMETERS      : Structure seller_Details variable seller_root, user name and password 
+**  RETURN          : NULL
+*******************************************************************************************/
+            
 seller_Details *login_seller(seller_Details *seller_root,char *user_name , char *pswd)
 {
         seller_Details *p = seller_root ;
@@ -287,8 +334,14 @@ seller_Details *login_seller(seller_Details *seller_root,char *user_name , char 
         if(flag == 0)
          return NULL ;
 }
-
-
+ 
+/*******************************************************************************************
+**  FUNCTION NAME   : check_the_buyer_request
+**  DESCRIPTION     : In this function it checks the request of a buyer who wants to buy his products
+**  PARAMETERS      : Structure seller_Details variable seller
+**  RETURN          :  Return source 
+*******************************************************************************************/
+            
 void check_the_buyer_request(seller_Details *seller)
 {
 
@@ -334,6 +387,14 @@ void check_the_buyer_request(seller_Details *seller)
         fclose(fptr);
 
 }
+
+/*******************************************************************************************
+**  FUNCTION NAME   : new_registration_to_file
+**  DESCRIPTION     : In this function it stores the seller details in a file when registers
+**  PARAMETERS      : No parameters
+**  RETURN          : No Return  
+*******************************************************************************************/
+            
 int new_registration_to_file()
 {
         seller_Details seller_data ;
@@ -417,6 +478,13 @@ int new_registration_to_file()
 
 }
 
+/*******************************************************************************************
+**  FUNCTION NAME   : file_to_list
+**  DESCRIPTION     : In this function it read the data from file to linked list for sellers 
+**  PARAMETERS      : Structure seller_Details variable Seller_root_1
+**  RETURN          : Return seller_root
+*******************************************************************************************/
+            
 seller_Details *file_to_list(seller_Details *seller_root_1)
 {
 
