@@ -70,6 +70,24 @@ typedef struct bidding_details
 	struct bidding_details *next ;
 }bidding_details;
 
+//structure for buyer
+typedef struct buyer_Details
+{
+        int id;
+        char name[30];
+        char emailId[50];
+        long int phoneNo;
+        char panNo[10];
+        int product_id[10];
+         char password[20];
+        int price[10];
+    	int count ;
+    	int status ;
+    	 
+        struct buyer_Details *next;
+        
+}buyer_Details;
+
 //functions for admin
 
 void admin(seller_Details *, buyer_Details *);
