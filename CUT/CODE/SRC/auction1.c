@@ -3,6 +3,11 @@
 #include<stdlib.h>
 #include"header.h"
 
+/*This Fuction is for input checking 
+*parameter:: No parameters are passed
+*return type:: int
+*/
+
 int ans_check()
 {
         char ch ;
@@ -23,6 +28,12 @@ int ans_check()
         }
 
 }
+
+/*This Fuction is for Auction of products
+*parameter::seller root
+*return type:: void
+*/
+
 void auction_for_product(product_details *prod_root , seller_Details *seller_root , buyer_Details *buyer_root)
 {
         seller_Details *sller_id = NULL;
@@ -100,6 +111,10 @@ else
 
 }
 
+/*This Fuction is for checking the price of user enterd
+*parameter::q
+*return type:: seller_Details *q
+*/
 
 seller_Details * price_check(product_details *p , seller_Details *q)
 {
@@ -128,6 +143,12 @@ count++;
 
         return NULL;
 }
+
+/*This Fuction is for displaying information
+*parameter:: character pointer
+*return type:: void as it returns character pointer
+*/
+
 void display_info(char *buffer)
 {
 
@@ -166,6 +187,12 @@ void display_info(char *buffer)
                 piece = strtok(NULL,",");
         }
 }
+
+/*This Fuction is for displaying History
+*parameter::No parameter returns 
+*return type:: void as it returns nothing
+*/
+
 void history_display()
 {
         char *str = "biding_histry.txt";
@@ -201,6 +228,10 @@ fclose(fptr);
 
 }
 
+/*This Fuction is for extracting history from file
+*parameter::No parameter returns 
+*return type:: void as it returns nothing
+*/
 
 bidding_details *biding_histroy_extraction_from_file(bidding_details *Bidding_root)
 {
@@ -236,7 +267,7 @@ bidding_details *biding_histroy_extraction_from_file(bidding_details *Bidding_ro
                                 if(count <= 15)
                                 {
                                         piece = strtok(buffer,",");
-while(piece !=NULL)
+                                         while(piece !=NULL)
                                         {
 
                                                 piece[strlen(piece)] = '\0';
@@ -275,6 +306,10 @@ while(piece !=NULL)
      return Bidding_root;
 }
 
+/*This Fuction is for finding the largest bidding price
+*parameter::Bidding data 
+*return type:: int large
+*/
 
 int  finding_the_largest_bidding_price(bidding_details Bidding_Data)
 {
@@ -290,8 +325,12 @@ int  finding_the_largest_bidding_price(bidding_details Bidding_Data)
         }
 
         return large ;
-
 }
+
+/*This Fuction is for creating a bidding list
+*parameter::No parameter returns 
+*return type:: void as it returns source
+*/
 
 bidding_details *create_bidding_list(bidding_details *source ,  bidding_details Bidding_Data)
 {
@@ -315,7 +354,7 @@ bidding_details *create_bidding_list(bidding_details *source ,  bidding_details 
                         temp->result[i] = Bidding_Data.result[i];
 
                 while(p->next != NULL)
-{
+                 {
                         p = p->next ;
 
                  }
@@ -328,6 +367,11 @@ bidding_details *create_bidding_list(bidding_details *source ,  bidding_details 
         return source ;
 }
 
+/*This Fuction is for displaying bidding price
+*parameter::No parameter returns 
+*return type:: void as it returns Source
+*/
+
 void display_bidding_price(bidding_details *p)
 {
 
@@ -339,6 +383,10 @@ void display_bidding_price(bidding_details *p)
                 }
 }
 
+/*This Fuction is for checking the best price by buyer
+*parameter::No parameter returns 
+*return type:: void as it returns Source
+*/  
 
 bidding_details *check_for_best_price_by_buyer(bidding_details *source  , bidding_details Data)
 {
@@ -364,6 +412,11 @@ p=p->next;
                         return source ;
 
 }
+
+/*This Fuction is for storing tranction into file
+*parameter::No parameter returns 
+*return type:: void 
+*/  
 
 void saving_tranction_into_file(bidding_details *bidding_root )
 {
