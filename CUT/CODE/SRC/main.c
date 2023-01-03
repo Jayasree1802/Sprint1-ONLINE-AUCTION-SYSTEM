@@ -1,7 +1,14 @@
+//main file
+//header files
 #include<stdio.h>
 #include<stdlib.h>
 #include"header.h"
-
+/***********************************************************
+*Function::design
+*Description::it gives design in output
+*Parameters:No
+*return ::void
+*********************************************************/
 void design()
 {
         for(int i = 0 ; i <30 ; i++)
@@ -10,7 +17,12 @@ void design()
         printf("\n");
 }
 
-
+/***********************************************************
+*Function::main
+*Description::it gives main menu for admin,buyer,seller,exit
+*Parameters:No
+*return ::int
+*********************************************************/
 int main()
 {
         system("clear");
